@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/jqueryui/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/codemirror/lib/codemirror.css" type="text/css">
+    <script type="text/javascript" src="js/vendor/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/vendor/d3.v3.js"></script>
+    <script type="text/javascript" src="js/vendor/jqueryui/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/vendor/codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="js/vendor/codemirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/viscomposer.js"></script>
+    <title>VisComposer</title>
+</head>
+<body>
+    <div id="top">
+        <div id="top-logo"><span>Vis</span>Composer</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem">New</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem">Save</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem">Open</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem" id="import">Import Data</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem" id="export">Export</div>
+        <!--<div class="top-cutoff"></div>-->
+    </div>
+    <div id="resources">
+        <div class="title">
+            Resource
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content">
+            <div id="form">
+                <div class="title">
+                    <span>Form</span>
+                </div>
+                <div class="content">
+                    <table></table>
+                </div>
+            </div>
+            <div id="primitive">
+                <div class="title">
+                    <span>Primitive</span>
+                </div>
+                <div class="content">
+                    <table></table>
+                </div>
+            </div>
+            <div id="array">
+                <div class="title">
+                    <span>Composition</span>
+                </div>
+                <div class="content">
+                    <table></table>
+                </div>
+            </div>
+            <div id="dataWindow">
+                <div class="title">
+                    <span>Data</span>
+                </div>
+                <div class="content">
+                    <div class="list"></div>
+                    <div class="btn">+&nbsp;ADD</div>
+                </div>
+                <div class="cover"></div>
+                <div id="dataimportingwindow" class="window">
+                    <div class="title">
+                        Import Data
+                        <img src="resource/image/icon/delete2.png" class="close">
+                    </div>
+                    <div class="select">
+                        <div class="span">Connect to data</div>
+                        <div class="btn"><img src="resource/image/icon/enter.png"></div>
+                        <input type="file" id="file" style="display:none;"/>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="recenttitle">Data saved</div>
+                    <div class="recent"></div>
+                </div>
+                <div id="datatypeselectwindow" class="window">
+                    <div class="title">
+                        Select Data Type
+                        <img src="resource/image/icon/delete2.png">
+                    </div>
+                    <div class="main">
+                        <table>
+                            <thead>
+                            <tr class="head">
+                                <td class="col1"></td>
+                                <td>Unknown</td>
+                                <td>Categorical</td>
+                                <td>Quantitative</td>
+                                <td>Ordinal</td>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="submit">
+                        <div class="cancel">BACK</div>
+                        <div class="confirm">OK</div>
+                    </div>
+                </div>
+                <div id="datapreviewwindow" class="window">
+                    <div id="datapreviewwindow-title"></div>
+                    <div id="datapreviewwindow-content"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="workflowWindow">
+        <div id="modules">
+            <div class="wrap">
+                <div><img src="resource/image/element/module/ColumnSelector.png" draggable="true" title="Column Selector" type="module_selcol"></div>
+                <div><img src="resource/image/element/module/ColumnFilter.png" draggable="true" title="Column Filter" type="module_colschooser"></div>
+                <div><img src="resource/image/element/module/Filter.png" draggable="true" title="Filter" type="module_filter"></div>
+                <div><img src="resource/image/element/module/Sort.png" draggable="true" title="Sort" type="module_sort"></div>
+                <div><img src="resource/image/element/module/operation.png" draggable="true" title="Operation" type="module_custom"></div>
+                <div><img src="resource/image/element/module/Function.png" draggable="true" title="Function" type="module_custom"></div>
+                <div><img src="resource/image/element/module/Counter.png" draggable="true" title="Counter" type="module_counter"></div>
+                <div><img src="resource/image/element/module/Counter_2.png" draggable="true" title="Counter" type="module_counter"></div>
+                <div><img src="resource/image/element/module/data.png" draggable="true" title="Data" type="module_custom"></div>
+                <div><img src="resource/image/element/module/CustomModule.png" draggable="true" title="Custom" type="module_custom"></div>
+            </div>
+        </div>
+        <div class="title">
+            <span>Transformation</span>
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content">
+
+        </div>
+
+    </div>
+    <div id="scenegraphWindow">
+        <div class="title">
+            <span> Scenegraph</span>
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content">
+            <div class="label">
+                <div class="text">CANVAS</div>
+                <div class="wrap">
+                    <input type="color" value="#ffffff">
+                    <div class="colorbtn"></div>
+                    <div class="width">
+                        width: <input type="text" value="1080">
+                    </div>
+                    <div class="height">
+                        height: <input type="text" value="720">
+                    </div>
+                </div>
+            </div>
+            <div class="graph" id="graph-root">
+            </div>
+        </div>
+    </div>
+    <div id="canvasWindow">
+        <div class="title">
+            <span>Visualization</span>
+            <span class="fullscreen"><img src="resource/image/icon/fullscreen.png"></span>
+            <span class="normal"><img src="resource/image/icon/restore.png"></span>
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content"><svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg></div>
+    </div>
+
+    <div class="menucover"></div>
+    <div id="removelinkmenu" class="menu">
+        <div>remove all links</div>
+    </div>
+    <div id="removemodulemenu" class="menu">
+        <div>remove this module</div>
+    </div>
+    <div id="savenodemenu" class="menu">
+        <div class="save">save as templates</div>
+        <div>delete</div>
+    </div>
+    <div id="canvasmenu" class="menu">
+        <div class="split">apply new method<div class="submenu"></div></div>
+        <div>delete</div>
+    </div>
+    <div id="mappingmenu" class="menu">
+        <div class="scalepool">
+            load
+            <div class="submenu">
+            </div>
+        </div>
+
+        <div class="new">
+            new
+            <div class="submenu">
+                <div id="direct">direct mapping</div>
+                <div id="categorical">color mapping</div>
+                <div id="scale">scale mapping</div>
+                <div id="value">value mapping</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="datadistribution">
+
+    </div>
+
+
+
+    <!--<div id="tipsfordrawing">-->
+        <!--drag a rectangle here-->
+    <!--</div>-->
+
+</body>
+</html>

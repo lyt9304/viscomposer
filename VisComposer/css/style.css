@@ -1,0 +1,401 @@
+*{-webkit-box-sizing: border-box;-moz-box-sizing: border-box; box-sizing: border-box;}
+
+
+::-webkit-scrollbar { width: 6px; height: 6px;}
+::-webkit-scrollbar-thumb {background: rgba(97,97,97,0.7);}
+@font-face {
+ font-family: 'fontNameRegular';
+ src: url('../resource/font/OpenSans-Regular.ttf');
+}
+
+
+html{ width: 100%; height: 100%; }
+
+body{ width: 100%; height: 100%; margin: 0; font-family: fontNameRegular;border: #aaaaaa solid thin; }
+body > .wrap{ height: 360px; width: 100%; }
+
+#top{ left: 0; right: 0; height: 50px; border: #aaaaaa dotted thin; position: relative; }
+#top-logo{ font-weight: bold; width: 185px; text-align: center; height: 50px; line-height: 50px; vertical-align: middle;font-size: 24px; color: #000000; float: left; ;}
+#top-logo span{ color: #4897f0; }
+.top-cutoff{ width: 1px; height: 10px; background: #cccccc; float: left; display: inline-block; margin-top: 15px; }
+.top-navitem{ font-size: 15px; cursor: pointer;width: 90px; text-align: center;height: 43px; color: #333333; float: left; line-height: 50px; vertical-align: middle; }
+.top-navitem#import{ width: 120px!important; }
+.top-navitem#export{ width: 100px!important; }
+.top-navitem:hover{ color: #4897f0; }
+
+body > #resources{ font-size: 12px; width: 490px; height: 360px; position: absolute; top: 50px; left: 0; border-left: #aaaaaa dotted thin;border-right: #aaaaaa dotted thin; }
+body > #resources > .title{ font-size: 15px; padding-left: 10px; width: 100%; height: 30px; line-height: 28px; border-bottom: solid #2196f3 medium; }
+body > #resources > .title img{ position: absolute; right: 10px; height: 20px; width: 20px; top: 5px;}
+body > #resources > .content{ width: 100%; height: 330px;}
+body > #resources > .content > #form{ width: 90px; height: 330px; position: absolute; top: 30px; left: 0; }
+body > #resources > .content > #form > .title{ width: 100%; height: 30px; line-height: 30px; border-bottom: #aaaaaa dotted thin; padding-left: 10px; }
+body > #resources > .content > #form > .content > table{ width: 100%;  }
+body > #resources > .content > #form > .content > table td{ padding-left: 5px; padding-right: 5px; width: 40px; }
+body > #resources > .content > #form > .content > table td:hover{ background-color: #e5f1ff; }
+body > #resources > .content > #form > .content > table td.clicked{ background-color: #e5f1ff; }
+body > #resources > .content > #form > .content img{ width: 30px; height: 30px; }
+body > #resources > .content > #primitive{  width: 90px; height: 330px; position: absolute; top: 30px; left: 90px;border-left: #aaaaaa dotted thin; }
+body > #resources > .content > #primitive > .title{ width: 100%; height: 30px; line-height: 30px; border-bottom: #aaaaaa dotted thin; padding-left: 10px; }
+body > #resources > .content > #primitive .content > table{ width: 100%;  }
+body > #resources > .content > #primitive .content > table td.clicked{ background-color: #e5f1ff; }
+body > #resources > .content > #primitive .content > table td{ padding-left: 5px; padding-right: 5px; width: 40px; }
+body > #resources > .content > #primitive .content > table td:hover{ background-color: #e5f1ff; }
+body > #resources > .content > #primitive .content img{ width: 30px; height: 30px; }
+body > #resources > .content > #array{ width: 90px; height: 330px; position: absolute; top: 30px; left: 180px;border-left: #aaaaaa dotted thin;}
+body > #resources > .content > #array > .title{ width: 100%; height: 30px; line-height: 30px; border-bottom: #aaaaaa dotted thin; padding-left: 10px; }
+body > #resources > .content > #array .content > table{ width: 100%;  }
+body > #resources > .content > #array .content > table td{ padding-left: 5px; padding-right: 5px; width: 40px; }
+body > #resources > .content > #array .content > table td:hover{ background-color: #e5f1ff; }
+body > #resources > .content > #array .content img{ width: 30px; height: 30px; }
+body > #resources > .content > #dataWindow{ width: 218px; height: 330px; border-left: #aaaaaa dotted thin; position: absolute; top: 30px; left: 270px; overflow-y: auto; }
+body > #resources > .content > #dataWindow > .title{  padding-left: 10px; padding-right: 10px; width: 100%; height: 30px; border-bottom: #aaaaaa dotted thin; background-color: white; line-height: 30px; vertical-align: middle; }
+body > #resources > .content > #dataWindow > .title span{ color: #333333; font-size: 12px; float: left; }
+body > #resources > .content > #dataWindow > .title img{ width: 16px; float: right; cursor: pointer; position: relative; top: 5px; right: -5px;}
+body > #resources > .content > #dataWindow-add:hover{ color:  #000000; background-color: #eeeeee; }
+body > #resources > .content > #dataWindow > .content{  }
+body > #resources > .content > #dataWindow > .content > .list{ width: 100%; height: auto; }
+body > #resources > .content > #dataWindow > .content > .list > .item{ font-size: 14px;   }
+body > #resources > .content > #dataWindow > .content > .list > .item img{ margin-left: 10px; margin-right: 10px; width: 12px; cursor: pointer; }
+body > #resources > .content > #dataWindow > .content > .list > .item .delete{ position: relative;top: 9px; float: right; margin-right: 13px;  }
+body > #resources > .content > #dataWindow > .content > .list > .item .preview{ position: relative;top: 10px; float: right; margin-right: 0px;  }
+body > #resources > .content > #dataWindow > .content > .list > .item > .item-data{ height: 30px; background-color: #ffffff; line-height: 30px; vertical-align: middle; }
+body > #resources > .content > #dataWindow > .content > .list > .item > .item-data span input{ max-width: 80px; }
+body > #resources > .content > #dataWindow > .content > .list > .item > .item-attrs{ display: none; }
+body > #resources > .content > #dataWindow > .content > .list > .item > .item-attrs > .item-attrs-item{ height: 30px; background-color: #fefefe; padding-left: 10px; line-height: 30px; vertical-align: middle; }
+body > #resources > .content  #dataWindow-add{ font-size: 12px; width: 100%; height: 30px; line-height: 30px; text-align: center; cursor: pointer;  color: #333333; }
+body > #resources > .content  #dataWindow-add:hover{ color: #4897f0; }
+body > #resources > .content  #dataWindow-add:active{ color: #004696; }
+
+#modules{width: 100%; height: auto; text-align: center; position: absolute; top:30px; left: 0; z-index: 0;}
+/*#modules table tr td img{ margin-top:4px;width: 20px; height: 20px; z-index: 9;}*/
+/*#modules table tr td{ padding-left: 5px; padding-right: 5px; }*/
+/*#modules table tr td:hover{ background-color: #e5f1ff; }*/
+#modules > .wrap{  width: 350px; height: 30px; margin: auto; background-color: #f2f2f2;}
+#modules > .wrap > div{  width: 30px; height: 30px; display: inline-block; padding: 5px; }
+#modules > .wrap > div:hover{ background-color: #e5f1ff; }
+#modules > .wrap > div > img{ width: 20px; height: 20px; }
+
+#scenegraphWindow{ font-size: 14px; width: 490px; border: #aaaaaa dotted thin; position: absolute; top: 408px; bottom: 0; left: 0;}
+#scenegraphWindow > .title{ z-index: 10; font-size: 15px;position: absolute; top: 0; padding-left: 10px; padding-right: 10px; width: 100%; height: 30px; border-bottom: #4897f0 solid medium; background-color: white; line-height: 26px; vertical-align: middle; }
+#scenegraphWindow > .title.highlight{ background-color: #4897f0!important; color: white!important; }
+#scenegraphWindow > .title span{  font-size: 16px; float: left; }
+#scenegraphWindow > .title img{ position: absolute; right: 10px; height: 20px; width: 20px; top: 5px;}
+#scenegraphWindow-add{ float: right!important; display: block; cursor: pointer;  }
+#scenegraphWindow > .content{ color: #004696; height: 100%; clear: both; width: 490px; padding-left: 10px; padding-top: 40px; overflow-y: auto; }
+#scenegraphWindow > .content > .label{  width: 470px!important; height: 80px!important;  background-color: #f2f2f2!important; border-left: medium #f2f2f2 solid!important; }
+#scenegraphWindow > .content > .label > .wrap{ font-size: 12px; width: 160px; height: 40px; margin: auto; position: relative; }
+#scenegraphWindow > .content > .label > .wrap > .colorbtn{ border: #4897f0 solid thin; border-radius: 4px; pointer-events:none; width: 35px; height: 35px; background-color: red; cursor: pointer; position: absolute; left: 25px; top: 3px; }
+#scenegraphWindow > .content > .label > .wrap > input[type="color"]{ border-radius: 4px; width: 35px; height: 35px; background-color: red; cursor: pointer; position: absolute; left: 25px; top: 3px; }
+#scenegraphWindow > .content > .label > .wrap > .width, #scenegraphWindow > .content > .label > .wrap > .height{ position: absolute; right: 0; top: 0; height: 20px; line-height: 20px; text-align: right; }
+#scenegraphWindow > .content > .label > .wrap > .height{ top: 20px; }
+#scenegraphWindow > .content > .label > .wrap input{ text-align: center; width: 50px; height: 18px; background: transparent;  border: 0; border-bottom: thin #4897f0 dotted; }
+#scenegraphWindow > .content > .label > .wrap input:focus{ outline: none }
+#scenegraphWindow > .content .node{ display: inline-block; vertical-align: top; position: relative; }
+#scenegraphWindow > .content .node > .main{ border: thin solid #e5f1ff; cursor: default;}
+#scenegraphWindow > .content .node > .main:hover{ border: thin solid #4897f0!important; }
+#scenegraphWindow > .content .node > .main.clicked{ border: thin solid #4897f0!important; }
+#scenegraphWindow > .content .node > .main.empty{ border: medium dotted #cccccc!important; }
+#scenegraphWindow > .content .node > .link{ text-align: center;  }
+#scenegraphWindow > .content .label{ width: 100%; height: 70px; border-left: medium #e5f1ff solid; background-color: #e5f1ff; text-align: center; line-height: 40px; color: #333333; font-size: 14px;  }
+#scenegraphWindow > .content .label.clicked{ border-left: medium #4897f0 solid!important; }
+#scenegraphWindow > .content .label .text{ width: 100%; height: 25px; text-align: center; line-height: 25px; font-size: 15px; }
+#scenegraphWindow > .content .node .label .message{ width: 100%; height: 45px; line-height: 35px; vertical-align: middle;  }
+#scenegraphWindow > .content .node .label .message img{ width: 30px; height: 30px; vertical-align: middle;  }
+#scenegraphWindow > .content .node .label .message span{ width: 30px; height: 30px; vertical-align: top;  }
+#scenegraphWindow > .content .node .graph{ width: 100%; height: auto; }
+#scenegraphWindow > .content .node .layout{ overflow-x: auto; width: 100%;border-left: medium white solid; text-align: center; }
+#scenegraphWindow > .content .node .layout.close{ height: 20px!important; overflow-y: hidden; }
+#scenegraphWindow > .content .node .layout.open{ height: auto!important; }
+#scenegraphWindow > .content .node .layout.empty{ height: 20px!important; display: block!important; border: #4897f0 dotted thin;  }
+#scenegraphWindow > .content .node .layout.clicked{ border-left: medium #4897f0 solid!important; }
+#scenegraphWindow > .content .node .layout img{ width: 15px; height: 15px;margin-top: 2px; }
+#scenegraphWindow > .content .node .layout .name{ width: 100%; height: 20px; line-height: 20px; vertical-align: middle; text-align: center; color: #333333; }
+#scenegraphWindow > .content .node .layout .content{ max-width: 200px; height: 60px; margin: auto; padding-top: 0px; }
+#scenegraphWindow > .content .node .layout .content img{ width: 40px; height: 40px; margin-left: 10px; margin-right: 10px; float: left; }
+#scenegraphWindow > .content .node .layout .content .item{ border-radius: 2px; display: inline-block; background-color: #2196f3; margin-bottom: 5px; color: white; padding-left: 4px; padding-right: 4px; height: 20px; cursor:default;}
+#scenegraphWindow > .content .node .dataselector{ position: absolute;text-align: left; width: 100%; padding-left: 50%; color: #2196f3;font-style:italic;}
+
+#canvasWindow{ position: absolute; top: 408px; bottom: 0; left: 495px; right: 0; border: #aaaaaa dotted thin; overflow-y: hidden; z-index: 11;}
+#canvasWindow.fullscreen{ top: 0!important; bottom: 0!important; left: 0!important; right: 0!important; }
+#canvasWindow .activebox{ position: absolute;   background-color: red; opacity: 0.2; border: red }
+#canvasWindow > .title{ position: absolute; top: 0; padding-left: 10px; padding-right: 10px; width: 100%; height: 30px; border-bottom: #4897f0 solid medium; background-color: white; line-height: 26px; vertical-align: middle; }
+#canvasWindow > .title > span{font-size: 15px; }
+#canvasWindow > .title > img{position: absolute; right: 40px; height: 20px; width: 20px; top: 5px;}
+#canvasWindow > .title > .fullscreen{ position: absolute; right: 10px; height: 24px; width: 24px; top: 2px; cursor: pointer; }
+#canvasWindow > .title > .fullscreen:hover{background-color: #daeafc}
+#canvasWindow > .title > .fullscreen:active{background-color: #b6d5f9}
+#canvasWindow > .title > .fullscreen > img{width:20px;height:20px;margin:2px;}
+#canvasWindow > .title > .normal{ position: absolute; right: 10px; height: 24px; width: 24px; top: 2px; cursor: pointer; display: none; }
+#canvasWindow > .title > .normal > img{width:20px;height:20px;margin:2px;}
+#canvasWindow > .content{ width: 100%; height: 100%; padding-top: 30px; overflow-y: hidden; background-color: white; }
+#canvasWindow > .content > svg{ position: relative; width: 100%; height: 100%; }
+
+#workflowWindow{ position: absolute; top: 50px; height: 360px; left: 495px; right: 0; border-left: #aaaaaa dotted thin;border-right: #aaaaaa dotted thin; }
+#workflowWindow > .title{ padding-left: 10px; width: 100%; height: 29px; margin-top: 1px; border-bottom: #4897f0 medium solid; text-align: left; line-height: 26px; vertical-align: middle; font-size: 15px; }
+#workflowWindow > .title > span{  font-size: 15px; }
+#workflowWindow > .title > img{ position: absolute; right: 10px; height: 20px; width: 20px; top: 5px;}
+#workflowWindow > .content{ width: 100%; height: 100%; margin-top: 30px; position: absolute; top: 30px; }
+.workflowWindow-sub{  width: 100%; height: 100%; overflow-y:hidden;  position: relative; }
+.workflowWindow-sub svg{ pointer-events: none; position: relative; z-index: 2; width: 100%; height: 100%; }
+.workflowWindow-sub svg path{ pointer-events: painted; position: relative; z-index: 2; width: 100%; height: 100%; }
+.workflowWindow-sub svg path.highlight{ stroke-width: 3!important; }
+.workflowWindow-sub-inputs{  font-size: 12px; border-radius: 2px; height: 220px; width: 120px;background-color: #f2f2f2; position: absolute; top: 0; left: 0;  }
+.workflowWindow-sub-inputs .title{ height: 30px; width: 100%; line-height: 30px; text-align: center; }
+.workflowWindow-sub-inputs .hr{ height: 1px; width: 100%; background-color: #cccccc; margin-bottom: 10px; }
+.workflowWindow-sub-inputs-item{ height: 20px; line-height: 20px; vertical-align: middle;width: 100%; text-align: right; position: relative; }
+.workflowWindow-sub-inputs-item .label{ height: 20px; line-height: 20px; position: absolute; right: 25px; top: -1px; }
+.workflowWindow-sub-inputs-item .circle{ width: 14px; height: 14px; border-radius: 7px; border: thin black solid; position: absolute; top: 2px; right: 4px; }
+.workflowWindow-sub-inputs-item .drop{ width: 100%; height: 100%; background-color: red; text-align: center; line-height: 30px; vertical-align: middle; color: white; }
+.workflowWindow-sub-outputs{  height: 100%; width: 120px;background-color: #ffffff;  position: absolute; top: 0; right: 0px;  }
+.workflowWindow-sub-outputs-item{ font-size: 12px; padding-bottom: 10px; background-color: #f2f2f2; border-radius: 2px; width: 100%; text-align: left; margin-bottom: 10px; position: relative;}
+.workflowWindow-sub-outputs-item > .title{ height: 30px; width: 100%; line-height: 30px; text-align: center; }
+.workflowWindow-sub-outputs-item > .hr{ height: 1px; width: 100%; background-color: #f2f2f2; margin-bottom: 10px; }
+/*.workflowWindow-sub-outputs-item > .label > .circle{ width: 14px; height: 14px; border-radius: 7px; border: thin black solid; position: absolute; top: 8px; left: 4px; }*/
+/*.workflowWindow-sub-outputs-item > .label > .leave{  width: 30px; height: 30px; line-height: 30px; color: white; background-color: #4897f0; position: absolute; right: 0; top: 0; cursor: pointer; text-align: center;  }*/
+.workflowWindow-sub-outputs-item .rect{ width: 100%; height: auto; background-color: #f2f2f2; }
+.workflowWindow-sub-outputs-item .rect .port{ position: relative; }
+.workflowWindow-sub-outputs-item .rect .port .label{ position: relative; top: 5px; height: 20px; line-height: 20px; vertical-align: top; font-size: 12px; padding-left: 25px; }
+.workflowWindow-sub-outputs-item .rect .port .circle{ width: 14px; height: 14px; border-radius: 7px; border: thin black solid; position: absolute; top: 8px; left: 4px; }
+.workflowWindow-sub > .content{ position: absolute; height: 100%; left: 205px; right: 205px; top:0; background-color: white;  }
+
+
+.module{ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); height: auto; position: absolute; top:2px; left: 2px; background-color: #e5f1ff; border-radius: 4px;}
+.module.normal{ background-color:#f2f2f2;  }
+.module.layout{ background-color: white; }
+.module.geometry{ background-color: #e5f1ff; }
+.module > .title{ width: 100%; height: 30px; line-height: 26px; vertical-align: middle; text-align: center; color: #333333; font-size: 12px; position: relative; }
+.module > .title > input{ width: 100%; height: 30px; line-height: 30px; vertical-align: middle; text-align: center;  font-size: 12px; position: relative; }
+.module > .title > span{ width: 100%; height: 30px; line-height: 30px; vertical-align: middle; text-align: center;color: #333333; font-size: 12px; position: relative; }
+.module > .title > img{ position: absolute; width: 20px; right: 10px; top: 5px; }
+.module > .content{ font-size: 12px; width: 100%; height: auto; padding-bottom: 10px;  position: relative;  color: #333333; }
+.module > .content > .inputs{ position: absolute; left: 4px; text-align: left; }
+.module .content .inputs .input{ cursor: pointer; height: 20px; width: 130px; line-height: 25px; vertical-align: middle; position: relative;}
+.module .content .inputs .input .circle{ height: 15px; width: 15px; border-radius: 8px; border: #aaaaaa thin solid; background-color: white; position: absolute; top: 3px; left: 0; }
+.module .content .inputs .input .circle.disable{  background-color: #aaaaaa!important;width: 10px!important;height: 10px!important;top: 6px!important;left: 2px!important; }
+.module .content .inputs .input .label{ position: absolute; top: -2px; left: 20px;  }
+.module .content .inputs .input .string{ position: absolute;top: 0; right: -40px;width: 100px; height: 20px;background: transparent; border: 0; border-bottom: thin #4897f0 dotted; text-align: center;}
+.module .content .inputs .input .string:focus{ outline:none; }
+.module .content .outputs{ position: absolute; right: 4px; text-align: right; }
+.module .content .outputs .output{ cursor: pointer; height: 20px; width: auto; line-height: 25px; vertical-align: middle;position: relative; }
+.module .content .outputs .output .circle{ height: 15px; width: 15px; border-radius: 8px; border: #aaaaaa thin solid; background-color: white; position: absolute; top: 3px; right: 0;}
+.module .content .outputs .output .label{ position: absolute; top: -2px; right: 20px;}
+.module > .hr{ height: 1px; width: 100%; background-color: #dddddd; margin-bottom: 10px; }
+.module-clicked{ box-shadow: 0 0 10px rgba(3, 120, 254, 0.5);  }
+
+.data.module{ width: 150px; }
+
+.filter.module{ width: 200px; height: 235px; }
+.filter.module .select{ position: absolute; height: 20px; width: 160px; left: 20px; top: 30px; background-color: white; background-image: url(../resource/image/selectbg.png); }
+.filter.module .select select{ background: transparent; width: 100%; border: none; font-size: 14px; height: 100%; -webkit-appearance: none; }
+.filter.module .option{ position: absolute; height: 110px; width: 160px; left: 20px; top: 60px; background-color: white; overflow-y: auto; }
+.filter.module .option .coding{ width: 50px; height: 20px; line-height: 20px; vertical-align: middle; color: white; text-align: center; background-color: #4897f0; }
+.filter.module .option .checkboxset input{ width: 15px; height: 15px; vertical-align: middle;  }
+.filter.module .option .label{ position: absolute; height: 20px; line-height: 20px; }
+.filter.module .option .label.min{ left: 0; top: 60px; }
+.filter.module .option .label.max{ right: 0; top: 60px; }
+.filter.module .option .label.selectmin{ left: 0; top: 25px; }
+.filter.module .option .label.selectmax{ right: 0; top: 25px; }
+.filter.module .option .range{ width: 150px; height: 6px; position: absolute; left: 9px; top: 50px; border: none; border-radius: 0; }
+.filter.module .option .range > .ui-slider-range{ background-color: #4897f0; height: 8px; border-radius: 0; }
+.filter.module .option .range > .ui-slider-handle{ background-color: #4897f0; width: 8px; height: 16px; border-radius: 0; border: none; }
+.filter.module .option .code{ text-align: center; width: 160px; position: relative; left: 0; top: 30px; background: transparent; background-image: url("../resource/image/inputbg3.png"); border: 0; height: 20px; }
+.filter.module .option .code:hover{ outline:none; }
+.filter.module .option .code:focus{ outline:none; }
+.filter.module .option .codeSubmit{ cursor: pointer; width: 50px; height: 20px; line-height: 20px; background-color: #4897f0; color: white; margin: auto; text-align: center; position: relative; top: 40px;  }
+.filter.module .option .codeSubmit:hover{ background-color: #004696; }
+
+.sort.module{ width: 200px; height: 170px; }
+.sort.module .select{ position: absolute; height: 20px; width: 160px; left: 20px; top: 30px; background-color: white; background-image: url(../resource/image/selectbg.png); }
+.sort.module .select select{ background: transparent; width: 100%; border: none; font-size: 14px; height: 100%; -webkit-appearance: none; }
+.sort.module .option{ position: absolute; height: 60px; width: 160px; left: 20px; top: 60px; background-color: white; overflow-y: auto; }
+
+.counter.module{ width: 200px; height: 135px; }
+.counter.module .option{ position: absolute; height: 45px; width: 160px; left: 20px; top: 60px; overflow-y: auto; }
+.counter.module .option input{ width: 60px; }
+
+.colschooser.module{ width: 200px; height: 160px; }
+.colschooser.module .option{ position: absolute; height: 80px; width: 160px; left: 20px; top: 30px; background-color: white; overflow-y: auto; }
+
+.view.module{ width: 185px; }
+.view.module  .content .inputs .input{ width: 130px; }
+
+.circle.module{ width: 300px; }
+.circle.module  .content .inputs .input{ width: 150px; }
+
+.rect.module{ width: 300px; }
+.rect.module  .content .inputs .input{ width: 150px; }
+
+.text.module{ width: 300px; }
+.text.module  .content .inputs .input{ width: 150px; }
+
+.polyline.module{ width: 300px; }
+.polyline.module  .content .inputs .input{ width: 150px; }
+
+.scatterplot.module{ width: 220px; }
+.scatterplot.module > .content{ height: 60px; }
+.scatterplot.module > .content > .modifier > .switchX, .scatterplot.module > .content > .modifier > .switchY{ cursor: pointer; background-color: #4897f0; width: 20px;height: 20px; line-height: 20px; text-align: center; color: white; position: absolute; right: 10px; bottom: 40px;  }
+.scatterplot.module > .content > .modifier > .switchY{ bottom: 10px; }
+
+.barchart.module{ width: 220px; }
+.barchart.module > .content{ height: 60px; }
+.barchart.module > .content > .modifier > .switchX, .barchart.module > .content > .modifier > .switchY{ cursor: pointer; background-color: #4897f0; width: 20px;height: 20px; line-height: 20px; text-align: center; color: white; position: absolute; right: 10px; bottom: 40px;  }
+.barchart.module > .content > .modifier > .switchY{ bottom: 10px; }
+
+.verticalarray.module{ width: 250px; }
+.verticalarray.module > .content{ height: 60px; }
+
+.crossmatrix.module{ width: 250px; }
+.crossmatrix.module > .content{ height: 60px; }
+
+.parallelcoordinates.module{ width: 200px; }
+.parallelcoordinates.module > .content{ height: 60px; }
+
+
+.modifier.module{ width: 250px; background-color: #f2f2f2;}
+.modifier.module > .content{ height: 60px; }
+.modifier.module > .content > .modifier{ position: absolute; bottom: 10px; left: 75px; height: 20px; width: 100px;  }
+.modifier.module > .content > .modifier > .switch{ cursor: pointer;   width: 50px; margin: auto;  height: 20px; line-height: 20px; text-align: center; color: white; background-color: #4897f0; }
+
+.colsel.module{ width: 300px; }
+.colsel.module .outputs{ padding-top: 20px; }
+.colsel.module .content{ background-image: url('../resource/image/colselector_bg.png') }
+
+.custom.module{ width: 200px; height: auto;}
+.custom.module .content .submit{ cursor: pointer; width: 60px; height: 20px; line-height: 20px; position: absolute; bottom: 10px; left: 70px; background-color: #4897f0; color: white; text-align: center; }
+.custom.module .content img{ cursor:pointer;width: 16px; height: 16px; margin-top: 2px; }
+.custom.module~.codearea{ font-size: 12px; display: none; position: fixed; width: 500px; height: 520px; left: 100px; top: 50px; background-color: white; z-index: 13;border: #cccccc solid thin; }
+.custom.module~.codearea .codetitle{ border-bottom: #4897f0 solid medium; position: relative; width: 100%; height: 30px; line-height: 28px; text-align: center; background-color: #f2f2f2; color: #333333; }
+.custom.module~.codearea .codetitle .close{ width: 15px; height: 15px; position: absolute; right: 5px; top: 7px; cursor: pointer; }
+.custom.module~.codearea .codetitle .add{left:5px;position:absolute;top:7px;cursor:pointer;width:15px;height:15px;}
+.custom.module~.codearea .codevariable{ padding-left: 10px; height: 20px; line-height: 20px; vertical-align: 20px; margin-top: 5px; }
+.custom.module~.codearea .codevariable > span > span{ display: inline-block;background-color: #4c99ed; padding-left: 4px; padding-right: 4px;color: white; }
+.custom.module~.codearea .inputlist{ padding-left: 10px; height: 20px; line-height: 20px; vertical-align: 20px; margin-top: 5px;}
+.custom.module~.codearea .inputlist > span > span{ display: inline-block;background-color: #4c99ed; padding-left: 4px; padding-right: 4px; color: white;  }
+.custom.module~.codearea .outputlist{ padding-left: 10px; height: 20px; line-height: 20px; vertical-align: 20px; margin-top: 5px; margin-bottom: 10px;}
+.custom.module~.codearea .outputlist > span > span{ display: inline-block;background-color: #4c99ed; padding-left: 4px; padding-right: 4px; color: white; }
+.custom.module~.codearea .code{ width: 480px; height: 340px; margin: auto; border: #cccccc solid thin; }
+.custom.module~.codearea .hr{ margin-top: 10px; margin-bottom: 10px; height: 1px; border-bottom: 1px dotted #cccccc; }
+.custom.module~.codearea .btns{ margin: auto; width: 480px; height: 30px; border: thin #4c99ed solid;  }
+.custom.module~.codearea .btns > div{ cursor: pointer; width: 239px; height: 28px; float: left; text-align: center; line-height: 28px;  }
+.custom.module~.codearea .btns > .preview{ border-left: #4c99ed solid thin; }
+.custom.module~.codearea .btns > div:hover{ background-color: #4c99ed!important; color: white!important; }
+
+.modifier.module.categorical{ width: 200px; top:50px; left: 600px; background-color: #f2f2f2; }
+.modifier.module.categorical > .content{ max-height: 150px; overflow: auto; }
+.modifier.module.categorical > .content > .item{ height: 20px; line-height: 20px; vertical-align: middle; clear: both; position: relative;}
+.modifier.module.categorical > .content > .item > div{ float: left; }
+.modifier.module.categorical > .content > .item > .value{ float: left; width: 70px; height: 20px; line-height: 20px; margin-left: 10px;}
+.modifier.module.categorical > .content > .item > .color{ float: left; width: 50px; height: 20px; line-height: 20px; margin-left: 5px;}
+.modifier.module.categorical > .content > .item > .btn{ cursor: pointer; position: absolute; top: 2px; right: 19px; background-color: black; height: 15px;line-height: 20px;  width: 15px;margin-left: 31px; }
+.modifier.module.categorical > .content > .item > .truebtn{ cursor: pointer; display: none; height: 15px;line-height: 20px;  width: 15px; }
+.modifier.module.categorical > .confirm{ font-size: 12px; color: white; cursor: pointer; height: 20px; text-align: center; line-height: 20px; vertical-align: middle; background-color: #4897f0; width: 180px; margin-left: 10px; margin-bottom: 10px; margin-top: 10px; }
+
+.modifier.module.scale{ width: 300px; height: auto; background-color: #f2f2f2; }
+.modifier.module.scale > .content{ height:auto; overflow-x: hidden; overflow-y: auto; position: relative; }
+.modifier.module.scale > .content input[type="text"]{ width:95px; }
+.modifier.module.scale > .content .label.start{ position: absolute; left: 20px; }
+.modifier.module.scale > .content .label.end{ position: relative; left: 153px; }
+.modifier.module.scale > .content .label.static.end{  left: 254px; }
+.modifier.module.scale > .content input.start{ position: relative; left: 20px; }
+.modifier.module.scale > .content input.end{ position: relative; left: 60px; }
+.modifier.module.scale > .content input[type="checkbox"], .modifier.module.scale > .content input[type="radio"]{ margin-left: 20px; }
+.modifier.module.scale > .content .range{  width: 240px;; margin-top: 10px; margin-bottom: 10px; margin-left: 30px;border: none; background-color: #cccccc; height: 8px; border-radius: 0; }
+.modifier.module.scale > .content .range > .ui-slider-range{ background-color: #4897f0; height: 8px; border-radius: 0; }
+.modifier.module.scale > .content .range > .ui-slider-handle{ background-color: #4897f0; width: 8px; height: 16px; border-radius: 0; border: none; }
+.modifier.module.scale > .content .range.disable{  background-color: grey; pointer-events: none; }
+.modifier.module.scale > .content .range > .ui-slider-range.disable{ background-color: grey; pointer-events: none; }
+.modifier.module.scale > .content .range > .ui-slider-handle.disable{ background-color: grey; pointer-events: none; }
+.modifier.module.scale > .content .close{ background-color: #f2f2f2; border: #4897f0 solid thin; cursor: pointer; width: 250px; margin: auto; margin-top: 40px; clear: both; height: 20px; line-height: 20px; vertical-align: middle; color: #4897f0; text-align: center; }
+.modifier.module.scale > .content .close:hover{ background-color:  #4897f0; color: white; }
+.modifier.module.scale > .content .special{ width: 50%; float: left; }
+.modifier.module.scale > .content .special input{ position: relative; top: 2px; }
+
+.modifier.module.value{ width: 200px; top:50px; left: 50px;  background-color: #f2f2f2;}
+.modifier.module.value > .content{ max-height: 150px; overflow: auto; }
+.modifier.module.value > .content > .item{ height: 20px; line-height: 20px; vertical-align: middle; clear: both; }
+.modifier.module.value > .content > .item > .label{ float: left; width: 70px; height: 20px; padding-left: 10px;}
+.modifier.module.value > .content > .item > input{ float: left; width: 60px; height: 15px;  position: relative; top: 3px; }
+.modifier.module.value > .confirm{ font-size: 12px; color: white; cursor: pointer; height: 20px; text-align: center; line-height: 20px; vertical-align: middle; background-color: #4897f0; width: 126px; margin-left: 10px; margin-bottom: 10px; margin-top: 10px; }
+
+.modifier.module.direct{ width: 200px; top:100px; left: 50px; background-color: #f2f2f2;  }
+.modifier.module.direct > .content{ padding-bottom: 0; position: relative; }
+.modifier.module.direct input{ width: 180px; height: 20px; margin-left: 10px; background-image: url(../resource/image/inputbg2.png);  }
+.modifier.module.direct > .confirm{ border:#4897f0 solid thin; font-size: 12px; color: #333333; cursor: pointer; height: 20px; text-align: center; line-height: 20px; vertical-align: middle; background-color: #ffffff; width: 180px; margin-left: 10px; margin-bottom: 10px; margin-top: 10px; }
+.modifier.module.direct > .confirm:hover{ background-color: #4897f0; color: white; }
+
+
+.window{ position: absolute; z-index: 4; top: 130px; }
+
+#dataimportingwindow{ display: none; width: 100%; height: 100%; position: absolute; top: 0; left:0; z-index: 12;}
+#dataimportingwindow-cover{ width: 100%; height: 100%; background-color: #333333; opacity: 0.6;   }
+#dataimportingwindow-content{ width: 250px; height: 240px; border: #cccccc solid thin; background-color: white;}
+#dataimportingwindow-content-title{ border-bottom: #4897f0 solid medium; font-size: 15px; width: 100%; height: 30px; line-height: 28px; vertical-align: middle; background-color: #f2f2f2; color: #333333; text-align: center; position: relative;}
+#dataimportingwindow-content-title img{ position: absolute;  right: 5px;  top: 8px; cursor: pointer; width: 15px; height: 15px;}
+#dataimportingwindow-content-select{ height: 30px; width: 100%; position: relative; margin-top: 10px; margin-bottom: 10px; }
+#dataimportingwindow-content-select .span{ cursor: pointer; font-size: 15px; color: #4897f0; height: 30px; line-height: 30px; vertical-align: middle; position: absolute; left: 10px; }
+#dataimportingwindow-content-select .span:hover{ color: #004696; }
+#dataimportingwindow-content-select .btn{ cursor: pointer; height: 30px; width: 30px; line-height: 30px; vertical-align: middle; position: absolute; right: 5px; background-color: #4897f0; color: white; text-align: center; }
+#dataimportingwindow-content-select .btn img{ width: 15px; height: 15px; margin-top: 7px;}
+/*#dataimportingwindow-content-select-btn{ cursor: pointer; margin: auto; height: 30px; line-height: 30px; vertical-align: middle; width: 150px; background-color: #4897f0; color: white; text-align: center;  }*/
+#dataimportingwindow-content-hr{ width: 200px; height: 1px; margin: auto; background-color: #e3e3e3;  }
+#dataimportingwindow-content-recenttitle{ padding-left: 10px; width: 240px; height: 30px; line-height: 30px;  }
+#dataimportingwindow-content-recent{ width: 240px; height: 115px; overflow-y: auto; }
+.dataimportingwindow-content-recent-item{ font-size: 12px; color: #333333;  width: auto; height: 20px; line-height: 20px; vertical-align: middle;  margin-left: 10px; padding-right: 7px; }
+.dataimportingwindow-content-recent-item span:hover{ color: #4897f0; cursor: pointer; }
+
+#datatypeselectwindow{ display: none; width: 100%; height: 100%; position: absolute; top: 0; left:0; z-index: 12; }
+#datatypeselectwindow > .cover{width: 100%; height: 100%; background-color: #333333; opacity: 0.6;}
+#datatypeselectwindow > .content{ width: 420px; height: 410px; border: #cccccc solid thin;background-color: white; font-size: 12px; }
+#datatypeselectwindow > .content > .title{ border-bottom: #4897f0 solid medium;  width: 100%; height: 30px; line-height: 28px; vertical-align: middle; background-color: #f2f2f2; color: #333333; text-align: center; position: relative;}
+#datatypeselectwindow > .content > .title > img{ position: absolute;  right: 5px;  top: 8px; cursor: pointer; width: 15px; height: 15px; }
+#datatypeselectwindow > .content > .main{ height: 330px; width: 100%; overflow-y: auto; }
+#datatypeselectwindow > .content > .main > table{ width: 100%; }
+#datatypeselectwindow > .content > .main > table .head{ color: #4897f0; }
+#datatypeselectwindow > .content > .main > table .radiodiv{ cursor: pointer; color: #4897f0; height: 15px; width: 15px; border-radius: 8px; border: solid thin #aaaaaa; display: inline-block; position: relative;top: 4px;  }
+#datatypeselectwindow > .content > .main > table .radiodiv-check{ border: solid thin #4897f0; background-color: #4897f0;  }
+#datatypeselectwindow > .content > .main > table tr td{ width: 80px; height: 30px; line-height: 30px; vertical-align: middle; text-align: center; }
+#datatypeselectwindow > .content > .main > table tr .col1{ width: 100px; padding-left: 10px; text-align: left; }
+#datatypeselectwindow > .content > .submit{ width: 100%; height: 50px; padding-left: 10px; text-align: left; padding-top: 10px; }
+#datatypeselectwindow > .content > .submit .cancel, #datatypeselectwindow > .content > .submit .confirm{ cursor: pointer; width: 199px; height: 30px; float: left; border: solid thin #4897f0; text-align: center; line-height: 30px;  }
+#datatypeselectwindow > .content > .submit .cancel:hover,#datatypeselectwindow > .content > .submit .confirm:hover{ background-color: #4897f0; color: white;  }
+#datatypeselectwindow > .content > .submit .confirm{ margin-left: -1px;  }
+
+#datapreviewwindow{background:#f2f2f2;display:none;margin:auto;width:1048px;height-max:585px;position:absolute; z-index: 15;}
+#datapreviewwindowcover{display:none;width:100%;height:100%;background-color: #333333;opacity:0.6;position: fixed; left: 0; top: 0;z-index: 15;}
+#datapreviewwindow-title{height:30px;background-color: #f2f2f2; border-bottom: medium #4897f0 solid;color:#333333;width: 100%;font-size: 16px;text-align: center;line-height: 30px;vertical-align: middle;}
+#datapreviewwindow-title img{cursor: pointer;float:right;margin-top:5px;margin-right:10px; width: 15px; height: 15px;}
+#datapreviewwindow-content{overflow:scroll;width:auto;height:555px;}
+#datapreviewwindow-content-long{width:auto;position:relative;height:100%;}
+#datapreviewwindow-content-long img{left:12px;top:11px;position:absolute; width: 20px; height: 20px;}
+#datapreviewwindow-content table{background-color:white;font-size:12px;border-collapse:collapse;border:1px solid #cccccc;}
+#datapreviewwindow-content-table1{border-radius:3px;margin-bottom:10px;position:absolute;left:41px;top:10px;}
+#datapreviewwindow-content-table1 td{text-align:center;border:1px solid #cccccc;min-width:250px;max-width:800px;height:20px;border-collapse:collapse;}
+#datapreviewwindow-content-table2 td{width:20px;height:25px;border:1px solid #cccccc;}
+#datapreviewwindow-content-table2{position:absolute;left:10px;top:40px;text-align:center;}
+#datapreviewwindow-content-table3{position:absolute;top:40px;left:41px;}
+#datapreviewwindow-content-table3 td{border:1px solid #cccccc;height:25px;text-align:center;min-width:250px;max-width:800px}
+
+body > .menucover{ width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: 10; display: none; }
+body > .menu { width: 130px; height: auto;font-size: 12px; color: white; background-color: #0b243e; border-radius: 2px; display: none; position: fixed; z-index: 13; top: 2px; left: 2px; }
+body > .menu > div{ width: 100%; height: 30px; line-height: 30px; text-align: center; cursor: pointer;}
+body > .menu > div:hover { background-color: #004696; }
+#mappingmenu{ width:150px; height: auto; font-size: 12px; text-align: center;color: white; background-color: #0b243e; border-radius: 2px; display: none; position: fixed; z-index: 14; top: 200px; left: 200px; }
+#mappingmenu > .scalepool, #mappingmenu > .new{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; position: relative; }
+#mappingmenu > .scalepool:hover, #mappingmenu > .new:hover{ color:#4897f0;  }
+#mappingmenu > .scalepool > .submenu, #mappingmenu > .new > .submenu{ display: none; position: absolute; top: 0px; right: -150px; width:150px; height: auto; font-size: 12px; text-align: center;color: white!important; background-color: gray; border-radius: 2px;  }
+#mappingmenu > .scalepool > .submenu > div, #mappingmenu > .new > .submenu > div{  width: 100%; height: 30px; line-height: 30px; cursor: pointer; position: relative; }
+#mappingmenu > .scalepool > .submenu > div:hover, #mappingmenu > .new > .submenu > div:hover{ color:#4897f0; }
+#menuforlayout { display: none; background-color: #ffffff; border: #cccccc solid thin; z-index: 13; position: fixed; left: 400px; top: 400px; width: 280px; height: 120px; color: black;}
+#canvasmenu{ width:150px; height: auto; font-size: 12px; text-align: center;color: white; background-color: #0b243e; border-radius: 2px; display: none; position: fixed; z-index: 14; top: 200px; left: 200px; }
+#canvasmenu > .split{ width: 100%; height: 30px; line-height: 30px; cursor: pointer; position: relative; }
+#canvasmenu > .split:hover{ color:#4897f0;  }
+#canvasmenu > .split > .submenu{ display: none; position: absolute; top: 0px; right: -150px; width:150px; height: auto; font-size: 12px; text-align: center;color: white!important; background-color: gray; border-radius: 2px;  }
+#canvasmenu > .split > .submenu > div{  width: 100%; height: 30px; line-height: 30px; cursor: pointer; position: relative; }
+#canvasmenu > .split > .submenu > div:hover{ color:#4897f0; }
+
+body > #datadistribution{ display: none; position: fixed; top: 300px; left: 600px; z-index: 9999; width: 200px; height: auto; background-color: white; border: #cccccc solid thin; }
+body > #datadistribution > .item{ width: 100%; height: 20px; line-height: 20px; vertical-align: middle; text-align: center; }
+
+body > #tipsfordrawing{z-index: 14; display: none; position: fixed; top: 550px; left: 700px; height: 30px; line-height: 30px; text-align: center; background: #4897f0; padding-left: 10px; padding-right: 10px; color: white;  }
+
+.indicator-resizer.intermediate{ cursor: se-resize; }

@@ -1,0 +1,106 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet", href="/stylesheets/style.css", type="text/css")
+    link(rel="stylesheet", href="/javascripts/vendor/jqueryui/jquery-ui.css", type="text/css")
+    script(type="text/javascript", src="/javascripts/vendor/jquery-1.10.2.js")
+    script(type="text/javascript", src="/javascripts/vendor/d3.v3.js")
+    script(type="text/javascript", src="/javascripts/vendor/jqueryui/jquery-ui.min.js")
+    script(type="text/javascript", src="/javascripts/viscomposer.js")
+    title VisComposer
+  body
+    div(id="top")
+      div(class="logo")
+        span(class="blue") Vis
+        span Composer
+      div(class="navitem") New
+      div(class="navitem") Save
+      div(class="navitem") Open
+      div(class="navitem", id="import") Inport Data
+      div(class="navitem", id="export") Export
+    div(id="resources")
+      div(class="title") Resources
+        img(src="/images/icon/minimal.png")
+      div(class="content")
+        div(id="form")
+          div(class="title")
+            span Form
+          div(class="content")
+            table
+        div(id="primitive")
+          div(class="title")
+            span Primitive
+          div(class="content")
+            table
+        div(id="array")
+          div(class="title")
+            span Composition
+          div(class="content")
+            table
+        div(id="dataWindow")
+          div(class="title")
+            span Data
+          div(class="content")
+            div(class="list")
+            div(class="btn") +&nbsp;ADD
+          div(class="cover")
+          div(id="dataimportingwindow", class="window")
+            div(class="title") Import Data
+              img(src="/images/icon/delete2.png", class="close")
+            div(class="select")
+              div(class="span") Connect to data
+              div(class="btn")
+                img(src="/images/icon/enter.png")
+              iframe(name='dataiframefornorefresh', id="dataiframe", style="display: none;")
+              form(id="upload", action="/uploadfile", enctype="multipart/form-data", method="post", target='dataiframefornorefresh', style="display: none;")
+                input(type="file", id="file", name="datafile", style="display: none;" )
+                input(type="submit", id="uploadsubmit")
+            div(class="hr")
+            div(class="recenttitle") Data saved
+            div(class="recent")
+          div(id="datatypeselectwindow", class="window")
+            div(class="title") Select Data Type
+              img(src="/images/icon/delete2.png")
+            div(class="main")
+              table
+                thead
+                  tr(class="head")
+                    td(class="col1")
+                    td Unknown
+                    td Categorical
+                    td Quantitative
+                    td Ordinal
+                tbody
+            div(class='submit')
+              div(class="cancel") BACK
+              div(class="confirm") OK
+          div(id="datapreviewwindow", class="window")
+            div(class="title")
+            div(class="content")
+
+    div(id="workflowWindow")
+      div(id="modules")
+        div(class="wrap")
+      div(class="title")
+        span Transformation
+        img(src="/images/icon/minimal.png")
+      div(class="content")
+
+
+    div(id="scenegraphWindow")
+      div(class="title")
+        span Scenegraph
+        img(src="/images/icon/minimal.png")
+      div(class="content")
+
+    div(id="canvasWindow")
+      div(class="title")
+        span Visualization
+        span(class="fullscreen")
+          img(src="/images/icon/fullscreen.png")
+        span(class="normal")
+          img(src="/images/icon/restore.png")
+        img(src="/images/icon/minimal.png")
+      div(class="content")
+        svg(width="100%", height="100%", version="1.1", xmlns="http://www.w3.org/2000/svg")

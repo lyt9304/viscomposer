@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/jqueryui/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/codemirror/lib/codemirror.css" type="text/css">
+    <!--<link rel="stylesheet" href="js/vendor/tablecloth/tablecloth.css" type="text/css">-->
+    <script type="text/javascript" src="js/vendor/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/vendor/d3.v3.js"></script>
+    <script type="text/javascript" src="js/vendor/jqueryui/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/vendor/codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="js/vendor/codemirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/viscomposer.js"></script>
+    <title>viscomposer</title>
+</head>
+<body>
+    <div id="top">
+        <div id="top-logo"><span>Vis</span>Composer</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem">New</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem">Save</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem">Open</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem" id="import">Import Data</div>
+        <!--<div class="top-cutoff"></div>-->
+        <div class="top-navitem" id="export">Export</div>
+        <!--<div class="top-cutoff"></div>-->
+    </div>
+
+    <div id="resources">
+        <div class="title">
+            Resource
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content">
+            <div id="form">
+                <div class="title">
+                    <span>Form</span>
+                </div>
+                <div class="content">
+                    <table>
+                        <tr>
+                            <td><img src="resource/image/element/form/ScatterPlot.png" draggable="true" title="Scatterplot" type="scatterplot" painter="rect"></td>
+                            <td><img src="resource/image/element/form/LineChart.png" draggable="true" title="Line Chart" type="linechart" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/form/BarChart.png" draggable="true" title="Bar Chart" type="barchart" painter="rect"></td>
+                            <td><img src="resource/image/element/form/StackedBarChart.png" draggable="true" title="Stacked Bar Chart" type="stackedbarchart" painter="rect"></td>
+
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/form/ScatterPlotMatrix%20.png" draggable="true" title="Scatterplot Matrix" type="scatterplotmatrix" painter="rect"></td>
+                            <td><img src="resource/image/element/form/Treemap.png" draggable="true" title="Tree Map" type="treemap" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/form/ParallelCoordinates.png" draggable="true" title="Parallel Coordinates" type="parallelcoordinates" painter="rect"></td>
+                            <td><img src="resource/image/element/form/StarPlot.png" draggable="true" title="Radar Graph" type="radargraph" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/form/PieChart.png" draggable="true" title="Pie Chart" type="piechart" painter="rect"></td>
+                            <td><img src="resource/image/element/form/BubblePlot.png" draggable="true" title="Bubble Chart" type="bubblechart" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/form/Matrix.png" draggable="true" title="Matrix" type="matrix" painter="rect"></td>
+                            <td><img src="resource/image/element/form/Map.png" draggable="true" title="Map" type="map" painter="rect"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="primitive">
+                <div class="title">
+                    <span>Primitive</span>
+                </div>
+                <div class="content">
+                    <table>
+                        <tr>
+                            <td><img src="resource/image/element/primitive/frame.png" draggable="true" title="Blank View" type="blankview" painter="rect"></td>
+                            <td><img src="resource/image/element/primitive/Circle.png" draggable="true" title="Circle" type="circle" painter="circle"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/primitive/Rectangle.png" draggable="true" title="Rectangle" type="rectangle" painter="rect"></td>
+                            <td><img src="resource/image/element/primitive/Triangle.png" draggable="true" title="Triangle" type="triangle" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/primitive/Polygon.png" draggable="true" title="Polygon" type="polygon" painter="rect"></td>
+                            <td><img src="resource/image/element/primitive/Link.png" draggable="true" title="Line" type="line" painter="line"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/primitive/path_2-01.png" draggable="true" title="Curve" type="curve" painter="line"></td>
+                            <td><img src="resource/image/element/primitive/path.png" draggable="true" title="Path" type="path" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/primitive/Sector.png" draggable="true" title="Sector" type="sector" painter="rect"></td>
+                            <td><img src="resource/image/element/primitive/Polyline.png" draggable="true" title="Polyline" type="polyline" painter="line"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/primitive/Tag.png" draggable="true" title="Text" type="text" painter="rect"></td>
+                            <td><img src="resource/image/element/primitive/User%20defined.png" draggable="true" title="Custom" type="custom" painter="rect"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="array">
+                <div class="title">
+                    <span>Composition</span>
+                </div>
+                <div class="content">
+                    <table>
+                        <tr>
+                            <td><img src="resource/image/element/array/horizon.png" draggable="true" title="Horizontal Array" type="horizontalarray" painter="rect"></td>
+                            <td><img src="resource/image/element/array/vertical.png" draggable="true" title="Vertical Array" type="verticalarray" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/array/grid.png" draggable="true" title="Grid Array" type="gridarray" painter="rect"></td>
+                            <td><img src="resource/image/element/array/Layout3.png" draggable="true" title="Round Array" type="roundarray" painter="rect"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/array/axis.png" draggable="true" title="1-d Coordinate (horizontal)" type="axis_h" painter="line"></td>
+                            <td><img src="resource/image/element/array/axis_v.png" draggable="true" title="1-d Coordinate (vertical)" type="axis_v" painter="line"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="resource/image/element/array/Coordinates.png" draggable="true" title="2-d Coordinates" type="coordinates" painter="rect"></td>
+                            <td><img src="resource/image/element/array/polarcoordinates.png" draggable="true" title="Polar coordinates" type="polarcoordinates" painter="rect"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="dataWindow">
+                <div class="title">
+                    <span>Data</span>
+                    <!--<span id="dataWindow-add">+</span>-->
+                    <!--<img id="dataWindow-add" src="resource/image/icon/add.png">-->
+                </div>
+                <div class="content">
+                    <div class="list"></div>
+                    <div id="dataWindow-add">+&nbsp;ADD</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="workflowWindow">
+        <div id="modules">
+            <!--<table>-->
+                <!--<tr>-->
+                    <!--<td><img src="resource/image/element/module/ColumnSelector.png" draggable="true" title="Column Selector" type="selcol"></td>-->
+                    <!--<td><img src="resource/image/element/module/ColumnFilter.png" draggable="true" title="Column Filter" type="colschooser"></td>-->
+                    <!--<td><img src="resource/image/element/module/Filter.png" draggable="true" title="Filter" type="filter"></td>-->
+                    <!--<td><img src="resource/image/element/module/Sort.png" draggable="true" title="Sort" type="sort"></td>-->
+                    <!--<td><img src="resource/image/element/module/Counter.png" draggable="true" title="Counter" type="counter"></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><img src="resource/image/element/module/Counter_2.png" draggable="true" title="Counter2" type="counter"></td>-->
+                    <!--<td><img src="resource/image/element/module/CustomModule.png" draggable="true" title="Custom" type="custom"></td>-->
+                    <!--<td><img src="resource/image/element/module/data.png" draggable="true" title="data" type="custom"></td>-->
+                    <!--<td><img src="resource/image/element/module/Function.png" draggable="true" title="function" type="custom"></td>-->
+                    <!--<td><img src="resource/image/element/module/operation.png" draggable="true" title="operation" type="custom"></td>-->
+                <!--</tr>-->
+            <!--</table>-->
+            <div class="wrap">
+                <div><img src="resource/image/element/module/ColumnSelector.png" draggable="true" title="Column Selector" type="selcol"></div>
+                <div><img src="resource/image/element/module/ColumnFilter.png" draggable="true" title="Column Filter" type="colschooser"></div>
+                <div><img src="resource/image/element/module/Filter.png" draggable="true" title="Filter" type="filter"></div>
+                <div><img src="resource/image/element/module/Sort.png" draggable="true" title="Sort" type="sort"></div>
+                <div><img src="resource/image/element/module/operation.png" draggable="true" title="Operation" type="custom"></div>
+                <div><img src="resource/image/element/module/Function.png" draggable="true" title="Function" type="custom"></div>
+                <div><img src="resource/image/element/module/Counter.png" draggable="true" title="Counter" type="counter"></div>
+                <div><img src="resource/image/element/module/Counter_2.png" draggable="true" title="Counter" type="counter"></div>
+                <div><img src="resource/image/element/module/data.png" draggable="true" title="Data" type="custom"></div>
+                <div><img src="resource/image/element/module/CustomModule.png" draggable="true" title="Custom" type="custom"></div>
+            </div>
+        </div>
+        <div class="title">
+            <span>Transformation</span>
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content">
+
+        </div>
+
+    </div>
+
+    <div id="scenegraphWindow">
+        <div class="title">
+            <span> Scenegraph</span>
+            <!--<span id="scenegraphWindow-add">+</span>-->
+            <!--<img id="scenegraphWindow-add" src="resource/image/icon/add.png">-->
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content">
+            <div class="label">
+                <div class="text">CANVAS</div>
+                <div class="wrap">
+                    <input type="color" value="#ffffff">
+                    <div class="colorbtn"></div>
+                    <div class="width">
+                        width: <input type="text">
+                    </div>
+                    <div class="height">
+                        height: <input type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="graph" id="graph-root">
+            </div>
+        </div>
+    </div>
+    <div id="canvasWindow">
+        <div class="title">
+            <span>Visualization</span>
+            <span class="fullscreen"><img src="resource/image/icon/fullscreen.png"></span>
+            <span class="normal"><img src="resource/image/icon/restore.png"></span>
+            <img src="resource/image/icon/minimal.png">
+        </div>
+        <div class="content"><svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg></div>
+    </div>
+    <div id="dataimportingwindow">
+        <div id="dataimportingwindow-cover"></div>
+        <div id="dataimportingwindow-content" class="window">
+            <div id="dataimportingwindow-content-title">
+                Import Data
+                <img src="resource/image/icon/delete2.png" class="close">
+            </div>
+            <div id="dataimportingwindow-content-select">
+                <div class="span">Connect to data</div>
+                <div class="btn"><img src="resource/image/icon/enter.png"></div>
+                <input type="file" id="file" style="display:none;"/>
+            </div>
+            <div id="dataimportingwindow-hr"></div>
+            <div id="dataimportingwindow-content-recenttitle">Data saved</div>
+            <div id="dataimportingwindow-content-recent">
+                <!--<div class="dataimportingwindow-content-recent-item"><span>International Food Security.csv</span></div>-->
+                <!--<div class="dataimportingwindow-content-recent-item"><span>school_funding.csv</span></div>-->
+                <!--<div class="dataimportingwindow-content-recent-item"><span>game.csv</span></div>-->
+                <!--<div class="dataimportingwindow-content-recent-item"><span>bankruptcy.csv</span></div>-->
+                <!--<div class="dataimportingwindow-content-recent-item"><span>force.json</span></div>-->
+                <!--<div class="dataimportingwindow-content-recent-item"><span>flare.json</span></div>-->
+            </div>
+        </div>
+    </div>
+    <div id="datatypeselectwindow">
+        <div class="cover"></div>
+        <div class="content window">
+            <div class="title">
+                Select Data Type
+                <img src="resource/image/icon/delete2.png">
+            </div>
+            <div class="main">
+                <table>
+                    <thead>
+                    <tr class="head">
+                        <td class="col1"></td>
+                        <td>Unknown</td>
+                        <td>Categorical</td>
+                        <td>Quantitative</td>
+                        <td>Ordinal</td>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="submit">
+                <div class="cancel">BACK</div>
+                <div class="confirm">OK</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="datapreviewwindowcover"></div>
+    <div id="datapreviewwindow" class="window">
+        <div id="datapreviewwindow-title"></div>
+        <div id="datapreviewwindow-content"></div>
+    </div>
+
+    <div class="menucover"></div>
+    <div id="removelinkmenu" class="menu">
+        <div>remove all links</div>
+    </div>
+    <div id="removemodulemenu" class="menu">
+        <div>remove this module</div>
+    </div>
+    <div id="savenodemenu" class="menu">
+        <div class="save">save as templates</div>
+        <div>delete</div>
+    </div>
+    <div id="canvasmenu" class="menu">
+        <div class="split">apply new method<div class="submenu"></div></div>
+        <div>delete</div>
+    </div>
+    <div id="mappingmenu" class="menu">
+        <div class="scalepool">
+            load
+            <div class="submenu">
+            </div>
+        </div>
+
+        <div class="new">
+            new
+            <div class="submenu">
+                <div id="direct">direct mapping</div>
+                <div id="categorical">color mapping</div>
+                <div id="scale">scale mapping</div>
+                <div id="value">value mapping</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div id="menuforlayout">-->
+
+        <!--<div class="image">-->
+            <!--<img src="resource/image/element/layout/Coordinates.png">-->
+        <!--</div>-->
+        <!--<div class="title">Scatterplot</div>-->
+        <!--<div class="content">-->
+            <!--<div class="item">message 1</div>-->
+            <!--<div class="item">message 2</div>-->
+            <!--<div class="item">message 3</div>-->
+            <!--<div class="item">message 4</div>-->
+            <!--<div class="item">message 4</div>-->
+            <!--<div class="item">message 4</div>-->
+            <!--<div class="item">message 4</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div id="datadistribution">
+
+    </div>
+
+
+
+    <div id="tipsfordrawing">
+        drag a rectangle here
+    </div>
+
+</body>
+</html>

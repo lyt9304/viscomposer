@@ -1,0 +1,122 @@
+\section{Evaluations and Discussions}
+\label{sec:Evaluations}
+All examples were created on a  PC equipped with a Dell
+display (24-inch LCD with resolution of 1920$\times$  1080 pixels) and Google Chrome 41.
+
+\subsection{User Evaluation}
+\subsubsection{Evaluation Setup and Procedure}
+We conducted an informal user evaluation to collect feedback on VisComposer. We recruited 15 participants (10 were male) aged from 21 to 28 years old, in which 7 participants were graduate students and 8 participants were undergraduate students. 6 participants are very skilled at visualization and have been trained on visualization design and coding. 9 participants have only passing knowledge on visualization.
+
+%have experiences on
+
+All subjects used the Google Chrome browser. Feedback is collected with the online survey platform Kuiksurveys (http://kwiksurveys.com). In general, five tasks were assigned to each participant. The tasks were designed to test the capability of VisComposer in different aspects
+%including usability, performance, expressiveness and interactivity.
+Tasks were carried out in ascending order in terms of the degree of difficulty. Table~\ref{table:tasks} lists the details of the tasks.
+
+\begin{table} [htb]
+\centering
+\begin{tabular}{|l|l|l|}
+  \hline
+    Visual forms & Datasets \\%& Features \\
+  \hline
+    Stacked Bar Chart & \cite{IrisDataset} \\%& Usability\\
+  \hline
+    Parallel Coordinate Plot & \cite{AutoDataset} \\
+  \hline
+    Force-directed Graph & \cite{LesDataset} \\%& Performance\\
+  \hline
+    Squarified Treemap & \cite{CompanyDataset} \\%& Programmability \\
+  \hline
+    Tag Cloud & \cite{CountriesDataset} \\
+  \hline
+ \end{tabular}
+ \caption{Tasks for user evaluation.}
+ \label{table:tasks}
+\end{table}
+
+The user study was performed for each participant separately. The entire process consists of five steps and costs  60 to 90 minutes. The evaluation procedure for participants consisted of four steps: \textbf{1) Instruction:} The participant watched a video demonstration that teaches them how to use the system and how to create a scatterplot matrix. The  participant was then given hands on training by an experienced tutor of VisComposer. \textbf{2) Training:} The participants spent 30 minutes exploring the system and were allowed to ask the tutor questions. \textbf{3) Evaluation:} The participant was asked to perform the tasks in Table~\ref{table:tasks} sequentially. The result of each task was output to a standard visualization effect file. \textbf{4) Questionnaire:} After the tasks were finished, the participant was asked several short questions, and the answers and task results were evaluated and counted.
+
+\subsubsection{Qualitative Evaluation}
+We designed a questionnaire that contains 9 questions in two categories:
+\begin{itemize}
+ \item Subjective feelings: VisComposer is 1) expressive; 2) easy to use; 3) easy to understand; 4) useful.
+ \item Feasibility: VisComposer is feasible for 5) basic visualization; 6) programmable visualizations; 7) tree and graph visualization; 8) text visualization.
+\end{itemize}
+
+All questions were encoded with a 5-degree Likert Scaling (from -2 = lowest to 2 = highest). Table~\ref{tab:questionnaire_score} presents the average score of each question. On average the feedback is positive: most scores are in the range of 1 $\scriptsize{\sim} 2$. However, the scores on ``easy to use'' and ``easy to understand'' are relatively low. The question ``feasibility for programmable visualizations'' receives the highest average score when compared to other questions, which verifies that the programmability of VisComposer is effective and highly appreciated.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|}
+  \hline
+    Question & Average Score\\
+  \hline
+  1) expressive & 1.53 \\
+  \hline
+  2) easy to use & 0.73 \\
+  \hline
+  3) easy to understand & 1.07 \\
+  \hline
+  4) useful & 1.80 \\
+  \hline
+  5) basic visualization & 1.73 \\
+  \hline
+  6) programmable visualizations & 1.93\\
+  \hline
+  7) tree and graph visualization & 1.47\\
+  \hline
+  8) text visualization & 1.73\\
+  \hline
+ \end{tabular}
+ \caption{Average scores of 8 questions in a qualitative evaluation.}
+ \label{tab:questionnaire_score}
+\end{table}
+
+
+\subsubsection{Quantitative Evaluation}
+We performed an additional quantitative evaluation to compare the performance and usability of VisComposer with other approaches. After the qualitative evaluation, we chose 3 of the  6 skilled participants and asked them to create a scatterplot matrix based on the Iris dataset~\cite{IrisDataset}.  They were asked to create the visualization in 3 different ways: hand-drawing the scatterplot in Adobe Illustrator, programming the scatterplot with D3.js and designing the scatterplot in VisComposer. We compared the time spent with two other tools in Table~\ref{tab:quantitative}.  Results indicate high efficiency of VisComposer.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|l|}
+  \hline
+    Participant ID & Tool & Approximate time\\
+  \hline
+    A & Adobe Illustrator & 1 hour 10 minutes\\
+    B & D3.js & 49 minutes\\
+    C & VisComposer & 21 minutes \\
+  \hline
+ \end{tabular}
+ \caption{Performance comparison for crafting a scatterplot matrix with three approaches.}
+ \label{tab:quantitative}
+\end{table}
+
+
+%On average, the feedback is positive: most scores to
+%are towards the top of the scale (2 or 1), with a few lower scores on ``easy to use'' and ``easy to understand''.  The detailed ratings are: VisComposer is {expressive (1.75), easy to use (0.63), easy
+%to understand (1.13), useful (1.88) }¡±, VisComposer is feasible for {basic
+%visualizations (1.75), novel visualizations (1.25), programmable visualizations (1.95),
+%data (1.75), tree and graph visualizations (1.50), spatio-temporal visualization (1.63), artistic designs (1.00) }¡±.
+
+
+\subsubsection{User Interview}
+After the evaluation, we did an interview with the participants. Some participants noticed the separation of the visual design structure and the visualization and thought it is advantageous because it allows the user to focus on the design of the visual transformation and visual mapping. One user stated: ``the workflow and the scenegraph present the entire structure of my visual design, which is quite necessary for compound and complex visual design.'' Two participants extremely appreciated the programmability as they have experiences on both graphics shading programming and web visualization development. They commented that ``it is very useful to apply the visual mapping and layout codes and craft a visualization without following a fixed template. Also plenty of redundant work can be avoided because VisComposer incorporates rich controls. All I need is to focus on the core design.''. However, half of the participants claimed that the user interface is complicated because it requires many user interactions for specifying data transformations and visual mappings.
+
+\subsection{Limitations}
+Although the programmability favors the design of all visual effects, there are several limitations caused by the design complexity and the capabilities of the implemented system.
+
+\begin{itemize}
+  \item Our current implementation uses a tree-based scenegraph to structure the visualization.  This limits the flexibility of the creation process. On one hand, the tree structure requires
+a directional transfer of the visualization design.  However, the resources (e.g., data and primitives) can only be transferred from top to bottom. The information transfer in sibling nodes or upwards is infeasible. We plan to address this problem by implicitly passing values using the global state, which is hard to maintain in terms of the system architecture. On the other hand, the scenegraph is tightly coordinated with the data transformation, each of which influences the other subject on a modification. Once the scenegraph is constructed, it is hard to modify the visual design, which restricts the flexibility of the user control.
+  \item Animation and transition are not supported in VisComposer.  Although VisComposer can achieve animation effects  by adding extra data and controls to represent a gradual transform, it requires the design of an extremely complicated scenegraph.  A potential solution is to provide additional widgets to allow for modifying the Transformation and the Scenegraph modules in runtime. Unfortunately, it remains difficult to represent the needed operations efficiently.
+  \item
+Although interactive design and code-based design can be synchronized, they are not fully compatible in our current implementation. It is easy to generate editable code from an interactive design while the reverse is difficult. This makes some programming operations irreversible. This problem can be solved by refining the interface of the shader creation. A better solution is to create a Domain Specific Language based on javascript and write a compiler to support the user-customized program.
+  \item Our current implementation does not provide history views and undo operations. This issue can be addressed by preserving global states and snapshots with pruning optimization techniques.
+  \item In terms of performance, VisComposer employs SVG as the renderer to make it compatible with browsers. However, it results in a relatively slow performance compared with the means with Canvas or WebGL techniques. We plan to provide additional rendering options by leveraging Canvas and WebGL.
+      \item It is  challenging to construct complex forms using basic JSON primitives. Paths may help but using paths needs extra support like the SVG libraries in D3.js. Fortunately, the programmability of VisComposer allows easy importing from other JavaScript libraries.
+\end{itemize}
+
+\subsection{Discussions}
+Existing interactive design environments~\cite{Yuan:2014:TVCG}~\cite{Heer:2014:CGF} have demonstrated the feasibility of interactive visualization design. With VisComposer, comprehensive visualization effects can be made easy by exposing the programmability in each component. The interactivity of the program enables faster development and quick design iterations, thus improving the final effect. This hybrid development scheme facilitates both artists and programmers in visually authoring special effects.
+
+On the other hand, Lyra and iVisdesigner support direct manipulation on the visualization canvas. VisComposer additionally abstracts the visualization with a scenegraph, which can provide an alternative means of designing visual transformations and visual mappings.  This is particularly useful in situations where an intermediate result is needed for effective development.

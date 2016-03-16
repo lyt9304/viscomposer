@@ -3,12 +3,13 @@
  */
 viscomposer.ui.windows = function(){
     viscomposer.Object.call(this);
-    //nav window
+    //nav window ImportData 单击导入文件事件
     $(".top-navitem#import").on("click", function(){
         $("#dataimportingwindow").css("display", "block");
     });
-    //templates window and resources window
-    $(" body > #resources > .content > #layout > .content table img, " +
+
+    //templates window and resources window 给所有的图标（图元，布局等元素）添加拖拽事件并且记录到dragging对象中
+    $(" body > #resources > .content > #form > .content table img, " +
         "body > #resources > .content > #primitive > .content table img, " +
         "body > #resources > .content > #array > .content table img").on("dragstart", function(event){
         var dom = $(event.target);
@@ -18,11 +19,13 @@ viscomposer.ui.windows = function(){
             json: dom.attr("json")
         };
 
+        //这里相当于一次高亮操作
         $("#scenegraphWindow > .title").animate({"background-color": "#4897f0", color: 'white'}, 500);
         setTimeout('$("#scenegraphWindow > .title").animate({"background-color": "white", color: "#333333"}, 500);', 1000);
 
     });
 
+    //workflow中的模块图标的拖拽事件
     $("body #modules img").on("dragstart", function(event){
         var dom = $(event.target);
         viscomposer.app.dragging = {
@@ -36,13 +39,14 @@ viscomposer.ui.windows = function(){
 
     });
 
-    $("body > #resources > .content > #layout > .content table img, " +
+    $("body > #resources > .content > #form > .content table img, " +
         "body > #resources > .content > #primitive > .content table img").on("click", function(){
 
+        //canvas高亮
         $("#canvasWindow > .title").animate({"background-color": "#4897f0", color: 'white'}, 500);
         setTimeout('$("#canvasWindow > .title").animate({"background-color": "white", color: "#333333"}, 500);', 1000);
 
-        $("body > #resources > .content > #layout > .content table td, body > #resources > .content > #primitive > .content table td").removeClass('clicked');
+        $("body > #resources > .content > #form > .content table td, body > #resources > .content > #primitive > .content table td").removeClass('clicked');
         $(this).parents("td").addClass("clicked");
         viscomposer.app.drawing = $(this).attr("type");
         var painter=$(this).attr("painter");
@@ -58,7 +62,7 @@ viscomposer.ui.windows = function(){
                 selectedNode.graph.newNode(selectedNode, viscomposer.app.drawing,properties);
             }
             viscomposer.app.drawing = null;
-            $("body > #resources > .content > #layout > .content table td, body > #resources > .content > #primitive > .content table.primitives td").removeClass('clicked');
+            $("body > #resources > .content > #form > .content table td, body > #resources > .content > #primitive > .content table.primitives td").removeClass('clicked');
         },painter);
     });
 

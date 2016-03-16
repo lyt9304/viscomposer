@@ -111,7 +111,7 @@ viscomposer.workflow.BarChart=function(properties){
     envOutput.push(outPort6);
     
     this.type='layout';
-    this.layoutIcon="resource/image/element/layout/BarChart.png";
+    this.layoutIcon="resource/image/element/form/BarChart.png";
     this.layoutLabels=[
         ['number','number of bars in chart','layout().num'],
         ['x','position - x coordinate','layout().x'],

@@ -40,7 +40,7 @@ viscomposer.workflow.ParallelCoordinates=function(properties){
     }
     
     this.type='layout';
-    this.layoutIcon="resource/image/element/layout/ParallelCoordinates.png";
+    this.layoutIcon="resource/image/element/form/ParallelCoordinates.png";
     this.layoutLabels=[
         ['number','number of data points','layout().num'],
         ['polyLine','polylines data of each data point','layout().polyLine'],

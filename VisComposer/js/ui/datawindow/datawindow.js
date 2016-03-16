@@ -2,86 +2,16 @@
  * Created by vag on 2015/3/2.
  */
 
-viscomposer.ui.DataWindow = function(){
+viscomposer.ui.dataWindow = function(){
 
     var that = this;
 
     viscomposer.Object.call(this);
     //增加数据按钮响应
     $("#dataWindow-add").on("click", function(){
+
         $("#dataimportingwindow").css("display", "block");
-//        var data = {
-//            info: 'hdfs://10.76.6.118:9000/yuan/'
-//        };
-//        $.ajax({
-//            type: 'POST',
-//            data: data,
-//            url: "http://10.76.6.118:11111/hdfs_new/servlet/ListAllFiles",
-//            success: function(data)
-//            {
-////                console.log(data);
-//                var files = data.split(",");
-//                console.log(files);
-//                $("#dataimportingwindow").css("display", "block");
-//                $("#dataimportingwindow-content-recent").html('');
-//                for(var i = 0; i < files.length; i++)
-//                {
-//                    var filename = files[i].split("/");
-//                    filename = filename[filename.length-1];
-//                    $("#dataimportingwindow-content-recent").append('<div class="dataimportingwindow-content-recent-item" title="'
-//                        + files[i] + '"><span>' + filename + '</span></div>');
-//                }
-//                $(".dataimportingwindow-content-recent-item > span").on("click", function(){
-//                    var fileName = $(this).html();
-//                    var fileUrl = $(this).parents('.dataimportingwindow-content-recent-item').attr("title");
-////                    alert(fileName);
-//                    var postData = {
-//                        info: fileUrl,
-//                    };
-//                    $.ajax({
-//                        type: 'POST',
-//                        data: postData,
-//                        url: "http://10.76.6.118:11111/hdfs_new/servlet/ListAttr",
-//                        success: function(d)
-//                        {
-//                            var tempDataObj=new viscomposer.DataInfo();
-//                            tempDataObj.title = fileName;
-//                            tempDataObj.original = true;
-//                            tempDataObj.originalTitle = fileName;
-//                            tempDataObj.filetype = fileName.split(".")[1];
-//                            tempDataObj.attributes = [];
-//                            var attributes = d.split(",");
-//                            for(var i = 0; i < attributes.length-1; i++)
-//                            {
-//                                var tmp=new viscomposer.Attribute();
-//                                tmp.index=i;
-//                                tmp.label=attributes[i];
-//                                tmp.type=viscomposer.Attribute.TYPE.QUANTITATIVE;
-//                                tempDataObj.attributes.push(tmp);
-//                            }
-//                            if(tempDataObj.filetype === 'csv')
-//                            {
-//                                $("#datatypeselectwindow").css("display", "block");
-//                                that.fillDatatypeselectwindow(tempDataObj);
-//                            }
-//                            else
-//                            {
-//                                that.appendData(tempDataObj);
-//                            }
-//                            $("#dataimportingwindow").css("display", "none");
-//                        },
-//                        error: function(d)
-//                        {
-//
-//                        }
-//                    })
-//                });
-//            },
-//            error: function(data)
-//            {
-//                console.log(data);
-//            }
-//        });
+
     });
 
     $("#datatypeselectwindow .content .title img").on("click", function(){
@@ -126,11 +56,12 @@ viscomposer.ui.DataWindow = function(){
         var filename = arr[arr.length - 1];
         var filesNum = document.getElementById("file").files.length;
         var file = document.getElementById("file").files[filesNum-1];
+
         var tempDataObj=new viscomposer.DataInfo();
-        tempDataObj.title = filename;
         tempDataObj.title = filename;
         tempDataObj.original=true;
         tempDataObj.originalTitle = filename;
+
         tempDataObj.readFile(file,function(me){
             $("#dataimportingwindow").css("display", "none");
             if(tempDataObj.filetype === 'csv')
@@ -142,78 +73,34 @@ viscomposer.ui.DataWindow = function(){
             {
                 that.appendData(tempDataObj);
             }
+
             $("#file").val('');
+
         });
-
-        ///////////////////////////////
-//        var filesNum = document.getElementById("file").files.length;
-//        var file = document.getElementById("file").files[filesNum-1];
-//
-//        var url = 'http://10.76.6.118:11111/hdfs_new/servlet/UploadFilesToHdfs';
-//
-//        var fd = new FormData();
-//        fd.append("file", file);
-//        var xhr = new XMLHttpRequest();
-//        xhr.addEventListener("load", function(evt){
-//            alert("success!");
-//            alert(evt.target.responseText);
-//        }, false);
-//        xhr.addEventListener("error", function(evt){
-//            alert("error");
-//        }, false);
-//        xhr.addEventListener("abort", function(evt){
-//            alert("cancel");
-//        }, false);
-//        xhr.open("POST", url);
-//        xhr.send(fd);
-        ///////////////////////////////
-//        xhr.send(reader.result);
-
-//        var tempDataObj=new viscomposer.DataInfo();
-//        tempDataObj.title = filename;
-//        tempDataObj.title = filename;
-//        tempDataObj.original=true;
-//        tempDataObj.originalTitle = filename;
-//
-//        tempDataObj.readFile(file,function(me){
-//            $("#dataimportingwindow").css("display", "none");
-//            if(tempDataObj.filetype === 'csv')
-//            {
-//                $("#datatypeselectwindow").css("display", "block");
-//                that.fillDatatypeselectwindow(tempDataObj);
-//            }
-//            else
-//            {
-//                that.appendData(tempDataObj);
-//            }
-//
-//            $("#file").val('');
-//
-//        });
 
     });
 
 };
 
-viscomposer.ui.DataWindow.prototype = Object.create(viscomposer.Object.prototype);
-viscomposer.ui.DataWindow.prototype.constructor = viscomposer.ui.DataWindow;
-viscomposer.ui.DataWindow.prototype.datalist = {};
+viscomposer.ui.dataWindow.prototype = Object.create(viscomposer.Object.prototype);
+viscomposer.ui.dataWindow.prototype.constructor = viscomposer.ui.dataWindow;
+viscomposer.ui.dataWindow.prototype.datalist = {};
 
-viscomposer.ui.DataWindow.prototype.appendData = function(dataObj){
+viscomposer.ui.dataWindow.prototype.appendData = function(dataObj){
 
     var that = this;
 
-    var dataItem = new viscomposer.ui.DataWindow.item(dataObj, that);
+    var dataItem = new viscomposer.ui.dataWindow.item(dataObj, that);
     that.datalist[dataItem.uuid] = dataItem;
 
 };
 
-viscomposer.ui.DataWindow.prototype.fillDataPreviewWindow = function(dataObj)
+viscomposer.ui.dataWindow.prototype.fillDataPreviewWindow = function(dataObj)
 {
         $("#datapreviewwindow").css("display","block");
         $("#datapreviewwindowcover").css("display","block");
         if( dataObj.attributes.length <= 4 ){
-            var tmp_size = (58 + 250 * dataObj.attributes.length) + "px"; //guan 38-->58
+            var tmp_size = (48 + 250 * dataObj.attributes.length) + "px";
             $("#datapreviewwindow").css("width",tmp_size);
             $("#datapreviewwindow").css('left', function(){
                 return (parseFloat($(window).width()) - parseFloat($(this).width())) / 2;
@@ -257,7 +144,7 @@ viscomposer.ui.DataWindow.prototype.fillDataPreviewWindow = function(dataObj)
 
         }
         
-        $("#datapreviewwindow-title").html(dataObj.title+"<img class='close' src='resource/image/icon/delete2.png'/>");//"<img class='close' src='resource/image/icon/delete2.png'/>"
+        $("#datapreviewwindow-title").html(dataObj.title + "<img class='close' src='resource/image/icon/delete2.png'/>");
         $("#datapreviewwindow-title img").on('click',function(){
             $("#datapreviewwindow").html('');
             $("#datapreviewwindow").css('display',"none");
@@ -265,7 +152,7 @@ viscomposer.ui.DataWindow.prototype.fillDataPreviewWindow = function(dataObj)
         });
 
 };
-viscomposer.ui.DataWindow.prototype.fillDatatypeselectwindow = function(dataObj)
+viscomposer.ui.dataWindow.prototype.fillDatatypeselectwindow = function(dataObj)
 {
 
     var that = this;

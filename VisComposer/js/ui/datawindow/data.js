@@ -26,7 +26,6 @@ viscomposer.ui.dataWindow.item.prototype.addCsvToWindow = function(){
 
     var that = this;
     var dataModule = this.module;
-    //guan 在Data区域中增加一条
     $('#dataWindow > .content > .list').append(
         '<div type="data" draggable="true" ondragstart="viscomposer.app.ui.dragstart(event)" class="item" id="' + dataModule.uuid + '" data="close">' +
         '<div class="item-data">' +
@@ -37,7 +36,6 @@ viscomposer.ui.dataWindow.item.prototype.addCsvToWindow = function(){
             '</div>' +
             '<div class="item-attrs">' +
             '</div></div>');
-    //guan 重命名数据
     $("#" + dataModule.uuid + " span").on("dblclick", function(){
         var title = $(this).html();
         $(this).html('<input type="text" value="' + title + '">');
@@ -49,8 +47,6 @@ viscomposer.ui.dataWindow.item.prototype.addCsvToWindow = function(){
             $(this).parents("span").html(title);
         });
     });
-
-    // 可点击开csv的条目观察数据维度
     var key;
     for(var i = 0; i < dataModule.attributes.length; i++)
     {
@@ -77,8 +73,6 @@ viscomposer.ui.dataWindow.item.prototype.addCsvToWindow = function(){
             $(this).parents(".item-data").parents(".item").attr("data", "close");
         }
     });
-
-    //点击预览
     $("#dataWindow > .content > .list .item-data .preview").on("click", function(){
         $("#datapreviewwindow").html('');
         $("#datapreviewwindow").append("<div id='datapreviewwindow-title'></div>");
@@ -91,7 +85,6 @@ viscomposer.ui.dataWindow.item.prototype.addCsvToWindow = function(){
         $("#datapreviewwindow-content-long").append("<table id='datapreviewwindow-content-table2'></table>");
         $("#datapreviewwindow-content-long").append("<table id='datapreviewwindow-content-table3'></table>");
         that.window.fillDataPreviewWindow(dataModule);
-        //console.log(dataModule.data.length);
     });
 };
 
@@ -101,7 +94,7 @@ viscomposer.ui.dataWindow.item.prototype.addJsonToWindow = function(){
     $('#dataWindow > .content > .list').append(
         '<div type="data" draggable="true" ondragstart="viscomposer.app.ui.dragstart(event)" class="item" id="' + dataModule.uuid + '" data="close">' +
         '<div class="item-data">' +
-        '<img src="resource/image/dian.png" class="switch">' +
+        '<img src="resource/image/zhankai.png" class="switch">' +
         '<span>' + dataModule.title + '</span>' +
         '<img class="delete" src="resource/image/delete.png">' +
         '<img class="preview" src="resource/image/yulan.png">' +
@@ -120,20 +113,13 @@ viscomposer.ui.dataWindow.item.prototype.addJsonToWindow = function(){
         //     "</table>");
         // $("#datapreviewwindow-content-long").append("<table id='datapreviewwindow-content-table2'></table>");
         // $("#datapreviewwindow-content-long").append("<table id='datapreviewwindow-content-table3'></table>");
-        // that.window.fillDataPreviewWindow(dataModule);
-        $("#datapreviewwindow-title").append(dataModule.originalTitle+"<img class='close' src='resource/image/icon/delete2.png'/>");
-        $("#datapreviewwindow-title img").on('click',function(){
-        $("#datapreviewwindow").html('');
-        $("#datapreviewwindow").css('display',"none");
-        $("#datapreviewwindowcover").css("display","none");
-        });
-
+        //that.window.fillDataPreviewWindow(dataModule);
         var string = dataModule.fileContent;
         var str = string.replace(/\n/ig,"<br/>");
         var str = str.replace(/ /ig,"&nbsp&nbsp&nbsp");
+        console.log(str); 
         $("#datapreviewwindow-content-long").append("<div>" + str + "</div>");
-
-    
-        console.log(dataModule.fileContent);
+        $("#datapreviewwindow-title").append(dataModule.originalTitle);
+        console.log(dataModule);
     });
 };

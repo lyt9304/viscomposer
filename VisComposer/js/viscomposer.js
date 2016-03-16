@@ -60,7 +60,7 @@ viscomposer.namespace = function(name) {
 
 /**
  * Includes the file indicated by the rule by adding a script tag.
- * @param {string} file File to include, in the layout avis.package.part.
+ * @param {string} file File to include, in the form avis.package.part.
  */
 viscomposer.include = function(file) {
     viscomposer.writeScriptTag_(viscomposer.basePath + file);
@@ -130,7 +130,7 @@ viscomposer.namespace('scenegraph');
 viscomposer.include('core/functions.js');
 viscomposer.include('core/object.js');
 viscomposer.include('core/attribute.js');
-viscomposer.include('core/dataInfo.js');
+viscomposer.include('core/datainfo.js');
 viscomposer.include('core/environment.js');
 
 viscomposer.include('data/data.js');
@@ -141,7 +141,7 @@ viscomposer.include('data/datafactory.js');
 
 viscomposer.include('ui/ui.js');
 viscomposer.include('ui/windows.js');
-viscomposer.include('ui/datawindow/dataWindow.js');
+viscomposer.include('ui/datawindow/datawindow.js');
 viscomposer.include('ui/datawindow/data.js');
 viscomposer.include('ui/workflowWindow/workflowWindow.js');
 viscomposer.include('ui/workflowWindow/panel/panel.js');
@@ -161,7 +161,7 @@ viscomposer.include('ui/workflowWindow/panel/sort.js');
 viscomposer.include('ui/workflowWindow/panel/counter.js');
 viscomposer.include('ui/workflowWindow/panel/colschooser.js');
 viscomposer.include('ui/workflowWindow/panel/layout.js');
-viscomposer.include('ui/workflowWindow/panel/selcolpanel.js');
+viscomposer.include('ui/workflowWindow/panel/selcol.js');
 viscomposer.include('ui/workflowWindow/panel/scale.js');
 viscomposer.include('ui/workflowWindow/panel/modifier.js');
 viscomposer.include('ui/workflowWindow/panel/modifier/categorical.js');
@@ -174,10 +174,10 @@ viscomposer.include('ui/workflowWindow/port/port.js');
 viscomposer.include('ui/workflowWindow/port/input.js');
 viscomposer.include('ui/workflowWindow/port/selcolinput.js');
 viscomposer.include('ui/workflowWindow/port/output.js');
-viscomposer.include('ui/workflowWindow/port/workflowinputport.js');
+viscomposer.include('ui/workflowWindow/port/workflowinput.js');
 viscomposer.include('ui/workflowWindow/port/workflowoutputport.js');
 viscomposer.include('ui/workflowWindow/link/link.js');
-viscomposer.include('ui/scenegraphwindow/scenegraphWindow.js');
+viscomposer.include('ui/scenegraphwindow/scenegraphwindow.js');
 viscomposer.include('ui/scenegraphwindow/node.js');
 
 viscomposer.include('util/commonfunction.js');

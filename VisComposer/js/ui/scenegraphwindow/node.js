@@ -51,7 +51,6 @@ viscomposer.ui.scenegraphWindow.node.prototype.update = function(){
             {
                 that.createNode("#" + that.uuid + ' > .graph', node.children[i]);
             }
-
         }
     }
 
@@ -98,7 +97,7 @@ viscomposer.ui.scenegraphWindow.node.prototype.emptyNode = function(){
 
         var type = viscomposer.app.dragging.type;
         var node = that.node;
-        var parent = node.parent;
+        var parent=node.parent;
 
         switch(type){
         case 'scatterplot':
@@ -328,7 +327,6 @@ viscomposer.ui.scenegraphWindow.node.prototype.updateLayout = function(){
             $(that.elSelector + ' > .main > .layout').css("display", 'none');
         }
     }
-
 };
 
 viscomposer.ui.scenegraphWindow.node.prototype.clickListener = function(){
@@ -378,14 +376,14 @@ viscomposer.ui.scenegraphWindow.node.prototype.rightClickListener = function(){
 //                var uriContent="data:application/octet-stream,"+encodeURIComponent(str);
 //                var newWindow=window.open(uriContent,'neuesDokument');
                 menuDom.css("display", "none");
-                var templatesNum = $("body > #resources > .content > #layout > .content img").length;
+                var templatesNum = $("body > #resources > .content > #form > .content img").length;
                 if(templatesNum % 2 == 0)
                 {
-                    $("body > #resources > .content > #layout table").append("<tr><td></td><td></td></tr>")
+                    $("body > #resources > .content > #form table").append("<tr><td></td><td></td></tr>")
                 }
-                $($("body > #resources > .content > #layout table td")[templatesNum]).append('<img src="resource/image/element/layout/Userdefined.png" type="json" json="' + encodeURIComponent(str) + '">');
+                $($("body > #resources > .content > #form table td")[templatesNum]).append('<img src="resource/image/element/templates/Userdefined.png" type="json" json="' + encodeURIComponent(str) + '">');
                 menucoverDom.css("display", "none");
-                var imgsDom = $("body > #resources > .content > #layout > .content table img, body > #resources > .content > #primitive > .content table img");
+                var imgsDom = $("body > #resources > .content > #form > .content table img, body > #resources > .content > #primitive > .content table img");
                 imgsDom.unbind("dragstart");
                 imgsDom.on("dragstart", function(event){
                     var dom = $(event.target);
@@ -456,7 +454,7 @@ viscomposer.ui.scenegraphWindow.node.prototype.dblclickListener = function(){
         {
             layoutDom.removeClass("close");
             layoutDom.addClass("open");
-            layoutDom.children(".name").html("Composition:" + titleHtml);
+            layoutDom.children(".name").html(titleHtml.split(':')[1]);
         }else{
             layoutDom.removeClass("open");
             layoutDom.addClass("close");

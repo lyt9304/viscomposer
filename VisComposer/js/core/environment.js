@@ -207,9 +207,7 @@ viscomposer.Environment={
 				tmpF.setAttribute("y",tmp[f][1]+"px");
 				tmpF.setAttribute("width",tmp[f][2]+"px");
 				tmpF.setAttribute("height",tmp[f][3]+"px");
-				tmpF.setAttribute("class","indicator-f intermediate " + tmp[f][4]);
-//				tmpF.setAttribute("active", 0);
-//				tmpF.setAttribute("index", f);
+				tmpF.setAttribute("class","indicator-f intermediate");
 				tmpF.module=module;
 				tmpF.paintUnder=module;
 				tmpF.env=env;
@@ -218,23 +216,6 @@ viscomposer.Environment={
 				tmpF.posF=tmp[f][4];
 				transformRect.appendChild(tmpF);
 				transformRectF.push(tmpF);
-//                if(tmp[f][4] != "center")
-//                {
-//                    tmpF.addEventListener("mousedown", function(ev){
-//                        this.setAttribute("active", 1);
-//                    }, false);
-//                    tmpF.addEventListener("mousemove", function(ev){
-//                        var active = this.attributes["active"].value;
-//                        if(active == 1)
-//                        {
-//                            console.log(ev);
-//                        }
-//                    }, false);
-//                    tmpF.addEventListener("mouseup", function(ev){
-//                        this.setAttribute("active", 0);
-//                    }, false);
-//                }
-
 			}
 			transformRect.f=transformRectF;
 
@@ -485,7 +466,7 @@ viscomposer.Environment={
 		                        modifierModule.label='translation';
 		                        modifierModule.mappingType='direct';
 		                        var workflowDom=$(workflow.ui.elSelector+' .content');
-		                        modifierModule.pos=[100,100];
+		                        modifierModule.pos=[100,100];//TODO 放在线中间
 		                        var port1=linkFrom.port1,
 		                            port2=linkFrom.port2;
 		                        linkFrom.disconnect();
@@ -505,6 +486,8 @@ viscomposer.Environment={
 	                module.update();
 	                module.ui.update();
 		        }
+
+
 		        var deselectElement=function(){
 		            if(selectedElement){
 		                var module=selectedElement.module;
@@ -516,7 +499,7 @@ viscomposer.Environment={
 
 		                viscomposer.app.tryRender(true);
 		            }
-		        };
+		        }
 		        var moveElement=function(evt){
 		            if(!selectedElement){
 		                return;
@@ -566,78 +549,86 @@ viscomposer.Environment={
 		        var selectedElement=null;
 		        var curX=null;
 		        var curY=null;
-//		        var curTranslate=null;
-//		        var oriTranslate=null;
+		        var curTranslate=null;
+		        var oriTranslate=null;
 		        var oriMouseout=null;
 		        var oriMousemove=null;
 		        var oriMouseup=null;
 
-                var resize = function(dx, dy){
-                    var gs = $(selectedElement).siblings("g");
-                    var rects = $(gs[0]).children("rect");
-                    var center = rects[0];
-                    var left = rects[1];
-                    var top = rects[2];
-                    var right = rects[3];
-                    var bottom = rects[4];
-                    var tmpW, tmpH, tmpX, tmpY;
-                    tmpW = parseFloat($(center).attr("width")) + dx;
-                    $(center).attr("width", tmpW);
-                    tmpH = parseFloat($(center).attr("height")) + dy;
-                    $(center).attr("height", tmpH);
-                    tmpW = parseFloat($(top).attr("width")) + dx;
-                    $(top).attr("width", tmpW);
-                    tmpW = parseFloat($(bottom).attr("width")) + dx;
-                    $(bottom).attr("width", tmpW);
-                    tmpY = parseFloat($(bottom).attr("y")) + dy;
-                    $(bottom).attr("y", tmpY);
-                    tmpH = parseFloat($(left).attr("height")) + dy;
-                    $(left).attr("height", tmpH);
-                    tmpH = parseFloat($(right).attr("height")) + dy;
-                    $(right).attr("height", tmpH);
-                    tmpX = parseFloat($(right).attr("x")) + dx;
-                    $(right).attr("x", tmpX);
-                    tmpX = parseFloat($(selectedElement).attr("x")) + dx;
-                    tmpY = parseFloat($(selectedElement).attr("y")) + dy;
-                    $(selectedElement).attr({
-                        "x": tmpX,
-                        "y": tmpY,
-                    });
-                    var module = selectedElement.module;
-                    var widthPort = module.input[2];
-                    var heightPort = module.input[3];
-                    widthPort.value = parseFloat(widthPort.value) + parseFloat(dx);
-                    heightPort.value = parseFloat(heightPort.value) + parseFloat(dy);
-                    module.update();
-                    module.ui.update();
-                };
 		        var deselectElement=function(){
 		            if(selectedElement){
+		                var module=viscomposer.Object.hashmap.get(selectedElement.module);
 
 		                selectedElement.onmouseout=oriMouseout;
 		                selectedElement.onmouseup=oriMouseup;
 		                selectedElement.onmousemove=oriMousemove;
 		                selectedElement=0;
 
+		                for(var i=0;i<2;++i){
+		                    var linkFrom;
+		                    var d=curTranslate[i]-oriTranslate[i];
+		                    var linkFrom=module.input[i].linkFrom;
+		                    if(linkFrom){
+		                    	var moduleFrom=linkFrom&&linkFrom.port1.module;
+			                    if(moduleFrom.modifier instanceof viscomposer.workflow.DirectModifier){
+			                        var modifier=moduleFrom.modifier;
+			                        if(modifier.modifierStr.length==0){
+			                            modifier.modifierStr='parseFloat('+modifier.input[0]+')+'+d;
+			                        }else{
+			                            modifier.modifierStr=plus(''+modifier.modifierStr,d);
+			                        }
+			                    }else if(moduleFrom.modifier instanceof viscomposer.workflow.ScaleModifier){
+			                        var modifier=moduleFrom.modifier;
+			                        modifier.properties.offset+=d;
+			                    }else{
+			                        var workflow=linkFrom.workflow;
+			                        var modifier=new viscomposer.workflow.DirectModifier(linkFrom.port1.varname,linkFrom.port2.varname);
+			                        modifier.modifierStr=plus(''+modifier.modifierStr,d);
+			                        var modifierModule=new viscomposer.workflow.ModifierModule(false,modifier);
+			                        modifierModule.label='translation';
+			                        modifierModule.mappingType='direct';
+			                        var workflowDom=$(workflow.ui.elSelector+' .content');
+			                        modifierModule.pos=[100,100];//TODO 放在线中间
+			                        var port1=linkFrom.port1,
+			                            port2=linkFrom.port2;
+			                        linkFrom.disconnect();
+			                        workflow.addModule(modifierModule);
+			                        workflow.addLink(port1,modifierModule.input[0]);
+			                        workflow.addLink(modifierModule.output[0],port2);
+			                        workflow.ui.update();
+			                    }
+		                    }else{
+		                    	if(module.input[i].value.length==0){
+		                    		module.input[i].value=''+d;
+		                    	}else{
+		                        	module.input[i].value=plus(''+module.input[i].value,d);
+		                        }
+		                    }
+		                }                    
+		                module.update();
+
 		                viscomposer.app.tryRender(true);
 		            }
-		        };
+		        }
 		        var moveElement=function(evt){
-                    evt.stopPropagation();
 		            if(!selectedElement){
 		                return;
 		            }
-		            var dx=evt.clientX-curX;
-		            var dy=evt.clientY-curY;
-                    resize(dx, dy);
+		            dx=evt.clientX-curX;
+		            dy=evt.clientY-curY;
+		            curTranslate[0]+=dx;
+		            curTranslate[1]+=dy;
+		            newTranslate='translate('+curTranslate.join(',')+')';
+
+		            selectedElement.g.setAttributeNS(null,"transform",newTranslate);
+		            //selectedElement.clippath.setAttributeNS(null,"transform",newTranslate);
 		            curX=evt.clientX;
 		            curY=evt.clientY;
-
 		        };
 		        var newMouseout=function(evt){
 		            deselectElement();
 		            oriMouseout.call(this,evt);
-		        };
+		        }
 
 		        return function(evt){
 		            selectedElement=evt.target;
@@ -647,11 +638,11 @@ viscomposer.Environment={
 		            if(!g){return;}
 		            curX=evt.clientX;
 		            curY=evt.clientY;
-//		            oriTranslate=g.getAttributeNS(null,"transform").slice(10,-1).split(',');
-//		            curTranslate=[];
-//		            for(var i=0;i<2;++i) {
-//		                curTranslate.push(oriTranslate[i]=parseFloat(oriTranslate[i]));
-//		            }
+		            oriTranslate=g.getAttributeNS(null,"transform").slice(10,-1).split(',');
+		            curTranslate=[];
+		            for(var i=0;i<2;++i) {
+		                curTranslate.push(oriTranslate[i]=parseFloat(oriTranslate[i]));
+		            }
 		            oriMouseout=selectedElement.onmouseout;
 		            oriMousemove=selectedElement.onmousemove;
 		            oriMouseup=selectedElement.onmouseup;
@@ -1101,13 +1092,13 @@ viscomposer.Environment={
 			                .css('stroke-opacity','0.9');
 			            var par=this.parentNode.parentNode;
 			            par.parentNode.appendChild(par);
-//			            if(evt){this.fg.resizer.onmouseover();}
+			            if(evt){this.fg.resizer.onmouseover();}
 			        };
 			        var onmouseoutF0=function(evt){
 		        		evt&&evt.stopPropagation();
 			            $(this).css('stroke','#ccddff')
 			                .css('stroke-opacity','0.3');
-//			            if(evt){this.fg.resizer.onmouseout();}
+			            if(evt){this.fg.resizer.onmouseout();}
 			        };
 			        var onmousedownF0=function(evt){
 		        		evt&&evt.stopPropagation();
@@ -1230,19 +1221,18 @@ viscomposer.Environment={
 		            $(this).css('fill','#ccddff')
 		                .css('fill-opacity','0.3')
 		                .attr('transform','translate(0,0)')
-		                .attr('visibility','visible');
+		                .attr('visibility','hidden');
 		        },
 		        mouseover:function(evt){
 		        	evt&&evt.stopPropagation();
 		            $(this).css('fill','#334466')
-		            	.css('fill-opacity','0.9');
+		            	.css('fill-opacity','0.9')
 					if(evt){
 			           	$(this).css('stroke','#ffdd33')
 			            	.css('stroke-width','3')
 			                .css('stroke-opacity','0.9');
 			            this.indicator.f[0].onmouseover();
 			        }
-                    console.log("mouseover");
 		            var par=this.parentNode;
 		            par.parentNode.appendChild(par);
 		        },
@@ -1252,7 +1242,6 @@ viscomposer.Environment={
 		            	.css('fill-opacity','0.3')
 		            	.css('stroke-width','0')
 		                .css('stroke-opacity','0');
-                    console.log("mouseout");
 		            if(evt){this.indicator.f[0].onmouseout();}
 		        },
 		        mousedown:prodefined.resizeProc,

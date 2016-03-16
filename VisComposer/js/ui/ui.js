@@ -2,65 +2,15 @@
  * Created by vag on 2015/3/2.
  */
 
-//viscomposer.ui = (function(){
-//    var dataWindow = null,
-//        scenegraphWindow = null,
-//        canvasWindow = null;
-//
-//    var ui = function(){
-//        this.dom = $("body");
-//    };
-//
-//    var prototype = ui.prototype;
-//
-//    Object.defineProperties(prototype, {
-//        dataWindow: {
-//            get:function(){return dataWindow;},
-//            set:function(x){dataWindow=x;},
-//        },
-//        scenegraphWindow: {
-//            get:function(){return scenegraphWindow;},
-//            set:function(x){scenegraphWindow=x;},
-//        },
-//        canvasWindow: {
-//            get:function(){return canvasWindow;},
-//            set:function(x){canvasWindow=x;},
-//        }
-//    });
-//
-//    prototype.init = function(){
-//        dataWindow = new viscomposer.ui.dataWindow();
-//        scenegraphWindow = new viscomposer.ui.scenegraphWindow();
-//        canvasWindow = new viscomposer.ui.canvasWindow();
-//        var that = this;
-//        var uiDom = this.dom;
-//        //把所有弹出窗居中；
-//        uiDom.children(".window").css('left', function(){
-//            return (parseFloat($(window).width()) - parseFloat($(this).width())) / 2;
-//        });
-//
-//    };
-//
-//    prototype.update = function(){
-//        dataWindow.update();
-//        scenegraphWindow.update();
-//        canvasWindow.update();
-//    };
-//
-//    prototype.predefined = {
-//
-//    };
-//
-//    return ui;
-//})();
-
 viscomposer.ui = function(){
 
     viscomposer.Object.call(this);
 
     //把所有弹出窗居中；
     $(".window").css('left', function(){
+
         return (parseFloat($(window).width()) - parseFloat($(this).width())) / 2;
+
     });
 
 //    $( document ).tooltip({

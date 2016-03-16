@@ -101,11 +101,11 @@ viscomposer.scenegraph.SceneGraph.prototype.destroy=function(){
 };
 
 viscomposer.scenegraph.SceneGraph.prototype.newEmptyNode=function(parent){
-    if(parent&&parent!==this){
+    if(parent&&parent!==this){//如果有父结点的话
         var node=new viscomposer.scenegraph.Node(this,parent,true);
         parent.children.push(node);
         parent.workflow.updateOutputPorts();
-    }else{
+    }else{//如果没有父节点，那么祖先就是根节点
         var node=new viscomposer.scenegraph.Node(this,null,true);
         node.parent=this;
         this.roots.push(node);
@@ -188,7 +188,7 @@ viscomposer.scenegraph.SceneGraph.prototype.getEnv_=function(){
         height:svgRect.height,
     };
     return {root:rootTransfrom,transform:rootTransfrom};
-}
+};
 
 viscomposer.scenegraph.SceneGraph.prototype.run=function(simplify){
     var properties=this.properties;

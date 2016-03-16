@@ -2878,7 +2878,7 @@ $.widget( "ui.autocomplete", {
 						this.close( event );
 						// Different browsers have different default behavior for escape
 						// Single press can mean undo or clear
-						// Double press in IE means clear the whole layout
+						// Double press in IE means clear the whole form
 						event.preventDefault();
 					}
 					break;
@@ -4362,7 +4362,7 @@ $.extend(Datepicker.prototype, {
 							$.datepicker._hideDatepicker();
 						}
 
-						return false; // don't submit the layout
+						return false; // don't submit the form
 				case 27: $.datepicker._hideDatepicker();
 						break; // hide on escape
 				case 33: $.datepicker._adjustDate(event.target, (event.ctrlKey ?

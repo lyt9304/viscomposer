@@ -3385,7 +3385,7 @@
         // (WebKit defaults to false instead of true, IE too, if it's in an optgroup)
         support.optSelected = opt.selected;
 
-        // Tests for enctype support on a layout (#6743)
+        // Tests for enctype support on a form (#6743)
         support.enctype = !!document.createElement("form").enctype;
 
         // Makes sure cloning an html5 element does not cause problems
@@ -4312,7 +4312,7 @@
                     for (; i < max; i++) {
                         option = options[ i ];
 
-                        // oldIE doesn't update selected after layout reset (#2551)
+                        // oldIE doesn't update selected after form reset (#2551)
                         if (( option.selected || i === index ) &&
                             // Don't return options that are disabled or in a disabled optgroup
                             ( jQuery.support.optDisabled ? !option.disabled : option.getAttribute("disabled") === null ) &&
@@ -5481,12 +5481,12 @@
 
         jQuery.event.special.submit = {
             setup: function () {
-                // Only need this for delegated layout submit events
+                // Only need this for delegated form submit events
                 if (jQuery.nodeName(this, "form")) {
                     return false;
                 }
 
-                // Lazy-add a submit handler when a descendant layout may potentially be submitted
+                // Lazy-add a submit handler when a descendant form may potentially be submitted
                 jQuery.event.add(this, "click._submit keypress._submit", function (e) {
                     // Node name check avoids a VML-related crash in IE (#9807)
                     var elem = e.target,
@@ -5502,7 +5502,7 @@
             },
 
             postDispatch: function (event) {
-                // If layout was submitted by the user, bubble the event up the tree
+                // If form was submitted by the user, bubble the event up the tree
                 if (event._submit_bubble) {
                     delete event._submit_bubble;
                     if (this.parentNode && !event.isTrigger) {
@@ -5512,7 +5512,7 @@
             },
 
             teardown: function () {
-                // Only need this for delegated layout submit events
+                // Only need this for delegated form submit events
                 if (jQuery.nodeName(this, "form")) {
                     return false;
                 }
@@ -7477,7 +7477,7 @@
         },
         serializeArray: function () {
             return this.map(function () {
-                // Can add propHook for "elements" to filter or add layout elements
+                // Can add propHook for "elements" to filter or add form elements
                 var elements = jQuery.prop(this, "elements");
                 return elements ? jQuery.makeArray(elements) : this;
             })
@@ -7502,7 +7502,7 @@
         }
     });
 
-//Serialize an array of layout elements or a set of
+//Serialize an array of form elements or a set of
 //key/values into a query string
     jQuery.param = function (a, traditional) {
         var prefix,
@@ -7518,9 +7518,9 @@
             traditional = jQuery.ajaxSettings && jQuery.ajaxSettings.traditional;
         }
 
-        // If an array was passed in, assume that it is an array of layout elements.
+        // If an array was passed in, assume that it is an array of form elements.
         if (jQuery.isArray(a) || ( a.jquery && !jQuery.isPlainObject(a) )) {
-            // Serialize the layout elements
+            // Serialize the form elements
             jQuery.each(a, function () {
                 add(this.name, this.value);
             });
@@ -7808,7 +7808,7 @@
             global: true,
             processData: true,
             async: true,
-            contentType: "application/x-www-layout-urlencoded; charset=UTF-8",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             /*
              timeout: 0,
              data: null,
@@ -8558,7 +8558,7 @@
         var callbackName, overwritten, responseContainer,
             jsonProp = s.jsonp !== false && ( rjsonp.test(s.url) ?
                 "url" :
-                typeof s.data === "string" && !( s.contentType || "" ).indexOf("application/x-www-layout-urlencoded") && rjsonp.test(s.data) && "data"
+                typeof s.data === "string" && !( s.contentType || "" ).indexOf("application/x-www-form-urlencoded") && rjsonp.test(s.data) && "data"
                 );
 
         // Handle iff the expected data type is "jsonp" or we have a parameter to set
@@ -8569,7 +8569,7 @@
                 s.jsonpCallback() :
                 s.jsonpCallback;
 
-            // Insert callback into url or layout data
+            // Insert callback into url or form data
             if (jsonProp) {
                 s[ jsonProp ] = s[ jsonProp ].replace(rjsonp, "$1" + callbackName);
             } else if (s.jsonp !== false) {

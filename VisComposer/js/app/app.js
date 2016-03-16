@@ -55,26 +55,26 @@ $(document).ready(function(){
 
 });
 
-//viscomposer.app.imgPool = {
-//
-//    scatterplot: 'resource/image/element/layout/ScatterPlot.png',
-//    linechart: 'resource/image/element/layout/LineChart.png',
-//    crossmatrix: 'resource/image/element/layout/ScatterPlotMatrix.png',
-//    matrix: 'resource/image/element/layout/Matrix.png',
-//    barchart: 'resource/image/element/layout/Barchart.png',
-//    treemap: 'resource/image/element/layout/Treemap.png',
-//    scatterplotmatrix: 'resource/image/element/layout/ScatterPlotMatrix.png',
-//    parallelcoordinates: 'resource/image/element/layout/ParallelCoordinates.png',
-//
-//    circle: 'resource/image/element/primitive/Circle.png',
-//    rectangle: 'resource/image/element/primitive/Rectangle.png',
-//    line: 'resource/image/element/primitive/Link.png',
-//    sector: 'resource/image/element/primitive/Sector.png',
-//    text: 'resource/image/element/primitive/Tag.png',
-//    polyline: 'resource/image/element/primitive/Polyline.png',
-//    blankview: 'resource/image/element/primitive/frame.png',
-//
-//};
+viscomposer.app.imgPool = {
+
+    scatterplot: 'resource/image/element/form/ScatterPlot.png',
+    linechart: 'resource/image/element/form/LineChart.png',
+    crossmatrix: 'resource/image/element/form/ScatterPlotMatrix.png',
+    matrix: 'resource/image/element/form/Matrix.png',
+    barchart: 'resource/image/element/form/Barchart.png',
+    treemap: 'resource/image/element/form/Treemap.png',
+    scatterplotmatrix: 'resource/image/element/form/ScatterPlotMatrix.png',
+    parallelcoordinates: 'resource/image/element/form/ParallelCoordinates.png',
+
+    circle: 'resource/image/element/primitive/Circle.png',
+    rectangle: 'resource/image/element/primitive/Rectangle.png',
+    line: 'resource/image/element/primitive/Link.png',
+    sector: 'resource/image/element/primitive/Sector.png',
+    text: 'resource/image/element/primitive/Tag.png',
+    polyline: 'resource/image/element/primitive/Polyline.png',
+    blankview: 'resource/image/element/primitive/frame.png',
+
+};
 
 viscomposer.app.primitiveRegistry = {
 

@@ -167,7 +167,9 @@ viscomposer.ui.scenegraphWindow.prototype.dragoverListener = function(){
     var that = this;
 
     $(that.elSelector + " > .content").on("dragover", function(ev){
+
         ev.preventDefault();
+
     });
 };
 

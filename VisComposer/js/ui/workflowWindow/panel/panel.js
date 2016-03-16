@@ -105,6 +105,17 @@ viscomposer.ui.workflowWindow.panel.prototype.updateInputPorts = function(){
 };
 
 
+
+viscomposer.ui.workflowWindow.panel.prototype.createInputPort = function(port){
+
+    var that = this;
+
+    var panel = new viscomposer.ui.workflowWindow.input(that.elSelector + ' .inputs', port);
+
+    return panel;
+
+};
+
 viscomposer.ui.workflowWindow.panel.prototype.updateOutputPorts = function(){
     var that = this;
 

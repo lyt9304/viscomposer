@@ -45,5 +45,4 @@ viscomposer.ui.workflowWindow.viewPanel.prototype.createDom = function(){
             '</div>' +
             '<div class="outputs">' +
             '</div></div></div>');
-
 };

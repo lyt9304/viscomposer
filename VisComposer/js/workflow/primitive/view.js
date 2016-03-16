@@ -22,7 +22,7 @@ viscomposer.workflow.View=function(properties){
     inPort1.label='x';
     inPort1.varname='x';
     inPort1.module=this;
-    inPort1.value=properties.x||(properties.underLayout?'layout().x':30);
+    inPort1.value=properties.x||(properties.underLayout?'layout().x':0);
     input.push(inPort1);
 
     inPort2.label='y';
